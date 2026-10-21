@@ -1,0 +1,20 @@
+.container{
+    width: 100vw;
+    // height: 40px;
+    border: 2px solid red;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+
+    .logo{
+        width: 20%;
+        font-size: 3.5rem;    
+        border: 2px solid rgb(122, 101, 10);
+    }
+
+    .menubar{
+        width: 50%;
+        border: 2px solid blue;
+    }
+}
