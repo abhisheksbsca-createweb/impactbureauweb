@@ -11,7 +11,7 @@ function Header() {
 
       <nav className="menubar">
         <ul>
-          <li><Link to="/"><span>about</span></Link></li>
+          <li><Link to="/ourmission"><span>about</span></Link></li>
           <li><Link to="/ourwork"><span>our work</span></Link></li>
           <li><Link to="/stories"><span>stories</span></Link></li>
           <li><Link to="/impact-tv"><span>Impact TV</span></Link></li>

@@ -1,0 +1,47 @@
+.missionPageContainer{
+    width: 100%;
+    height: 953px;
+    border: 2px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    .missionPageContainerChild{
+         width: 65%;
+        height: 79rem;
+        border: 2px solid red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 4rem;
+
+
+        .missionPageInnerChild{
+            width: 95%;
+            height: 40%;
+            border: 2px solid blue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10rem;
+
+            .missionPageContentChild{
+                width:45%;
+                height: 80%;
+                border: 2px solid green;
+
+            }
+            .missionPageInnerChildLeftChild{
+                width: 30%;
+            }
+            .missionPageInnerChildRightChild{
+                width: 60%;
+            }
+        }
+    }
+}
+
+
+

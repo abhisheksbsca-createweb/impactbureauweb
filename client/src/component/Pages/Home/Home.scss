@@ -63,7 +63,7 @@
 
             .homeBtnChild1, .homeBtnChild2{
                 background-color: white;
-                padding: 1rem;
+                padding: .5rem;
                 outline: none;
                 border: none;
                 font-size: 1.5rem;
@@ -71,6 +71,13 @@
                 font-weight: 400;
                 cursor: pointer;
                 font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .homeBtnChild1,.homeBtnChild2{
+                display: flex;
+                align-items: center;
+                align-items: center;
+                border-radius: 15px;
             }
             .homeBtnChild1 a, .homeBtnChild2 a{
                 
@@ -81,9 +88,11 @@
             
             .homeBtnChild2{
                 background-color: transparent;
+                border: 0.4rem solid #999;
             }
             .homeBtnChild2 a{
                 color: #fff;
+            
 
             }
         }
