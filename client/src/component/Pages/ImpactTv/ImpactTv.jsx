@@ -1,7 +1,7 @@
 import { FaPlay } from "react-icons/fa";
 import "./ImpactTv.scss";
 
-const YOUTUBE_URL = "https://www.youtube.com/";
+const YOUTUBE_URL = "https://youtu.be/jqsshcccb90?si=GxrTNBXr-qrBCpoo/";
 
 // Replace `image: null` with an imported thumbnail and `url` with each video's YouTube link.
 const VIDEOS = [
