@@ -1,47 +1,221 @@
-.missionPageContainer{
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap');
+
+.missionPageContainer {
+    --ink: #0e1b19;
+    --ink-soft: #132623;
+    --paper: #f3efe6;
+    --paper-muted: #b9c4bf;
+    --marigold: #f2b134;
+    --hairline: rgba(243, 239, 230, 0.14);
+
+    // exactly one screen: 100vh minus the 6.3rem header
     width: 100%;
-    height: 953px;
-    border: 2px solid red;
+    height: calc(100vh - 6.3rem);
+    height: calc(100dvh - 6.3rem);
+    // safety net for very short windows so nothing gets squashed
+    min-height: 58rem;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: stretch;
+    background-color: var(--ink);
+    color: var(--paper);
 
-
-    .missionPageContainerChild{
-         width: 65%;
-        height: 79rem;
-        border: 2px solid red;
+    // Top and bottom sections: each takes half the height, full width
+    .missionPageContainerChild {
+        box-sizing: border-box;
+        width: 100%;
         display: flex;
-        justify-content: center;
-        align-items: center;
         flex-direction: column;
-        gap: 4rem;
+        align-items: stretch;
 
-
-        .missionPageInnerChild{
-            width: 95%;
-            height: 40%;
-            border: 2px solid blue;
+        .missionPageInnerUpperChild,
+        .missionPageInnerLowerChild {
+            box-sizing: border-box;
+            width: 100%;
+            flex: 1 1 0;
+            min-height: 0;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10rem;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: clamp(3rem, 8vw, 14rem);
+            padding: clamp(2.4rem, 5.5vh, 6rem) clamp(3rem, 5vw, 9rem);
+           
 
-            .missionPageContentChild{
-                width:45%;
-                height: 80%;
-                border: 2px solid green;
+            .missionPageContentChild {
+                min-width: 0;
+            }
 
+            // left: the section label
+            .missionPageInnerChildLeftChild {
+                flex: 0 0 clamp(18rem, 20%, 34rem);
+                display: flex;
+                justify-content: flex-start;
+                // border: 1px solid var(--hairline);
+
+                span {
+                    display: flex;
+                    align-items: center;
+                    gap: 1.2rem;
+                    padding-top: clamp(0.4rem, 1.4vh, 1.6rem);
+                    font-family: 'Manrope', Arial, sans-serif;
+                    font-size: 1.4rem;
+                    font-weight: 500;
+                    letter-spacing: 0.03em;
+                    text-transform: capitalize;
+                    color: var(--paper-muted);
+
+                    &::before {
+                        content: "";
+                        flex: none;
+                        width: 3.6rem;
+                        height: 2px;
+                        background: var(--marigold);
+                    }
+                }
             }
-            .missionPageInnerChildLeftChild{
-                width: 30%;
+
+            // right: the content, sized from both width and height
+            .missionPageInnerChildRightChild {
+                flex: 1 1 auto;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: clamp(1.4rem, 2.8vh, 3.4rem);
+
+                .missonRightUpperChild p {
+                    max-width: 18em;
+                    margin: 0;
+                    font-family: 'Newsreader', Georgia, serif;
+                    font-size: clamp(2.8rem, min(4vw, 6.4vh), 7rem);
+                    font-weight: 500;
+                    line-height: 1.15;
+                    letter-spacing: -0.025em;
+                    color: var(--paper);
+                    text-wrap: balance;
+
+                    span {
+                        color: var(--marigold);
+                        font-style: italic;
+                    }
+                }
+
+                // shared text-link style for both links on this page
+                .missonRightLowerChild a,
+                .missionPageRightSideChild4 a {
+                    display: inline-block;
+                    padding: 0.2rem 0;
+                    font-family: 'Manrope', Arial, sans-serif;
+                    font-size: clamp(1.5rem, 2vh, 1.8rem);
+                    font-weight: 600;
+                    text-transform: capitalize;
+                    text-decoration: underline;
+                    text-decoration-color: var(--marigold);
+                    text-decoration-thickness: 2px;
+                    text-underline-offset: 0.7rem;
+                    color: var(--paper);
+                    cursor: pointer;
+                    transition: color 0.2s ease;
+
+                    &:hover {
+                        color: var(--marigold);
+                    }
+
+                    &:focus-visible {
+                        outline: 2px solid var(--paper);
+                        outline-offset: 4px;
+                        border-radius: 4px;
+                    }
+                }
+
+                // founder's letter
+                .rightSideChild {
+                    max-width: 72rem;
+                }
+
+                .missionPageRightSideChild1 span {
+                    font-family: 'Manrope', Arial, sans-serif;
+                    font-size: 1.4rem;
+                    font-weight: 500;
+                    letter-spacing: 0.03em;
+                    color: var(--paper-muted);
+                }
+
+                .missionPageRightSideChild2 p {
+                    margin: 0;
+                    padding-left: 2.4rem;
+                    border-left: 3px solid var(--marigold);
+                    font-family: 'Newsreader', Georgia, serif;
+                    font-style: italic;
+                    font-size: clamp(1.9rem, min(2.2vw, 3.6vh), 3.8rem);
+                    font-weight: 400;
+                    line-height: 1.4;
+                    color: var(--paper);
+                }
+
+                .missionPageRightSideChild3 span {
+                    font-family: 'Manrope', Arial, sans-serif;
+                    font-size: 1.6rem;
+                    font-weight: 600;
+                    color: var(--paper);
+                }
             }
-            .missionPageInnerChildRightChild{
-                width: 60%;
+        }
+
+        // the founder's letter is a full-width band under the mission
+        .missionPageInnerLowerChild {
+            // background-color: var(--ink-soft);
+             background-color: var(--ink);
+            // border-top: 1px solid var(--hairline);
+        }
+    }
+}
+
+// Phone and small tablet: natural height, label sits above the content
+@media (max-width: 900px) {
+    .missionPageContainer {
+        height: auto;
+        min-height: calc(100vh - 6.3rem);
+        min-height: calc(100dvh - 6.3rem);
+
+        .missionPageContainerChild {
+            .missionPageInnerUpperChild,
+            .missionPageInnerLowerChild {
+                flex: none;
+                flex-direction: column;
+                gap: 2.4rem;
+                padding: 5rem 2.4rem;
+
+                .missionPageInnerChildLeftChild {
+                    flex: none;
+                    width: 100%;
+
+                    span {
+                        padding-top: 0;
+                    }
+                }
+
+                .missionPageInnerChildRightChild {
+                    width: 100%;
+                    gap: 2.8rem;
+
+                    .missonRightUpperChild p {
+                        font-size: 2.8rem;
+                    }
+
+                    .missionPageRightSideChild2 p {
+                        font-size: 2rem;
+                    }
+                }
             }
         }
     }
 }
 
-
-
+@media (prefers-reduced-motion: reduce) {
+    .missionPageContainer .missionPageContainerChild .missionPageInnerChildRightChild {
+        .missonRightLowerChild a,
+        .missionPageRightSideChild4 a {
+            transition: none;
+        }
+    }
+}

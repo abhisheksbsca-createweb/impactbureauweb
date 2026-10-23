@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap');
+
+.storiesPage {
+    --ink: #0e1b19;
+    --ink-soft: #132623;
+    --paper: #f3efe6;
+    --paper-muted: #b9c4bf;
+    --marigold: #f2b134;
+    --hairline: rgba(243, 239, 230, 0.14);
+
+    width: 100%;
+    background-color: var(--ink);
+    color: var(--paper);
+    font-family: 'Manrope', Arial, sans-serif;
+
+    .storiesSrOnly {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+
+    // photo slot: shows an <img> when you add one, a labelled placeholder until then
+    .storiesFeaturePhoto,
+    .storiesCardPhoto {
+        position: relative;
+        overflow: hidden;
+        background-color: var(--ink-soft);
+        background-image: linear-gradient(135deg, rgba(243, 239, 230, 0.06), transparent 60%);
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .storiesPhotoLabel {
+        position: absolute;
+        left: 1.6rem;
+        right: 1.6rem;
+        bottom: 1.4rem;
+        font-size: 1.3rem;
+        color: var(--paper-muted);
+    }
+
+    // shared text-link style
+    .storiesLink {
+        display: inline-block;
+        padding: 0.4rem 0;
+        font-size: 1.7rem;
+        font-weight: 600;
+        text-transform: capitalize;
+        text-decoration: underline;
+        text-decoration-color: var(--marigold);
+        text-decoration-thickness: 2px;
+        text-underline-offset: 0.7rem;
+        color: var(--paper);
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: var(--marigold);
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--paper);
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+    }
+
+    // ---------- Creator of the month: full-width band, photo bleeds to the left edge ----------
+    .storiesFeature {
+        display: grid;
+        grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
+        min-height: clamp(36rem, 62vh, 64rem);
+        background-color: var(--ink-soft);
+        border-bottom: 1px solid var(--hairline);
+    }
+
+    .storiesFeaturePhoto {
+        background-color: #1a312d;
+        border-right: 1px solid var(--hairline);
+    }
+
+    .storiesFeatureBody {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 2.4rem;
+        padding: clamp(3rem, 5vw, 9rem);
+    }
+
+    .storiesFeatureLabel {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.8rem 1.6rem;
+        margin: 0;
+        font-size: 1.4rem;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        color: var(--paper-muted);
+    }
+
+    .storiesFeatureLabelMain {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+
+        &::before {
+            content: "";
+            flex: none;
+            width: 3.6rem;
+            height: 2px;
+            background: var(--marigold);
+        }
+    }
+
+    .storiesFeatureLabelMonth {
+        padding-left: 1.6rem;
+        border-left: 1px solid var(--hairline);
+    }
+
+    .storiesFeatureTitle {
+        margin: 0;
+        font-family: 'Newsreader', Georgia, serif;
+        font-size: clamp(2.8rem, 3.4vw, 5.2rem);
+        font-weight: 500;
+        line-height: 1.12;
+        letter-spacing: -0.025em;
+        color: var(--paper);
+        text-wrap: balance;
+    }
+
+    .storiesFeatureText {
+        max-width: 44rem;
+        margin: 0;
+        font-size: 1.7rem;
+        line-height: 1.6;
+        color: var(--paper-muted);
+    }
+
+    // ---------- Stories from the field ----------
+    .storiesSection {
+        box-sizing: border-box;
+        padding: clamp(4rem, 9vh, 9rem) clamp(2.4rem, 5vw, 9rem);
+    }
+
+    .storiesInner {
+        max-width: 140rem;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: clamp(2.4rem, 4vh, 4rem);
+    }
+
+    .storiesHeading {
+        margin: 0;
+        font-family: 'Newsreader', Georgia, serif;
+        font-size: clamp(3.4rem, 4.6vw, 6rem);
+        font-weight: 500;
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        color: var(--paper);
+    }
+
+    .storiesFilters {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.6rem 3rem;
+    }
+
+    .storiesChips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+
+    .storiesChip {
+        padding: 0.9rem 1.8rem;
+        font-family: inherit;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: var(--paper);
+        background: transparent;
+        border: 1.5px solid rgba(243, 239, 230, 0.3);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+
+        &:hover {
+            border-color: var(--paper);
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--paper);
+            outline-offset: 3px;
+        }
+
+        &[aria-pressed="true"] {
+            color: var(--ink);
+            background-color: var(--marigold);
+            border-color: var(--marigold);
+        }
+    }
+
+    .storiesGrid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: clamp(3rem, 4vw, 5rem) clamp(2.4rem, 3vw, 4.8rem);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+            min-width: 0;
+        }
+    }
+
+    .storiesCard {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        text-decoration: none;
+        color: inherit;
+
+        &:focus-visible {
+            outline: 2px solid var(--paper);
+            outline-offset: 6px;
+            border-radius: 6px;
+        }
+    }
+
+    .storiesCardPhoto {
+        aspect-ratio: 3 / 2;
+        border: 1px solid var(--hairline);
+        border-radius: 6px;
+        margin-bottom: 1.8rem;
+    }
+
+    .storiesCardMeta {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        margin: 0 0 1rem;
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: var(--paper-muted);
+    }
+
+    .storiesCardCategory {
+        font-weight: 600;
+        color: var(--marigold);
+    }
+
+    .storiesCardDistrict {
+        padding-left: 1.2rem;
+        border-left: 1px solid var(--hairline);
+    }
+
+    .storiesCardTitle {
+        margin: 0 0 1rem;
+        font-family: 'Newsreader', Georgia, serif;
+        font-size: clamp(2.2rem, 2vw, 2.8rem);
+        font-weight: 500;
+        line-height: 1.25;
+        letter-spacing: -0.015em;
+        color: var(--paper);
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 0.6rem;
+        transition: text-decoration-color 0.2s ease;
+    }
+
+    .storiesCard:hover .storiesCardTitle {
+        text-decoration-color: var(--marigold);
+    }
+
+    .storiesCardSummary {
+        margin: 0;
+        font-size: 1.5rem;
+        line-height: 1.5;
+        color: var(--paper-muted);
+    }
+
+    .storiesEmpty {
+        margin: 0;
+        padding: 4rem 0;
+        font-size: 1.7rem;
+        color: var(--paper-muted);
+
+        button {
+            padding: 0;
+            font-family: inherit;
+            font-size: inherit;
+            font-weight: 600;
+            color: var(--paper);
+            background: none;
+            border: none;
+            text-decoration: underline;
+            text-decoration-color: var(--marigold);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 0.7rem;
+            cursor: pointer;
+
+            &:hover {
+                color: var(--marigold);
+            }
+        }
+    }
+}
+
+// Laptop and tablet: two story columns
+@media (max-width: 1100px) {
+    .storiesPage .storiesGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+// Feature stacks: photo on top, text underneath
+@media (max-width: 900px) {
+    .storiesPage {
+        .storiesFeature {
+            grid-template-columns: minmax(0, 1fr);
+            min-height: 0;
+        }
+
+        .storiesFeaturePhoto {
+            aspect-ratio: 16 / 10;
+            border-right: none;
+            border-bottom: 1px solid var(--hairline);
+        }
+
+        .storiesFeatureBody {
+            padding: 4rem 2.4rem 5rem;
+        }
+    }
+}
+
+// Phone: one story per row
+@media (max-width: 640px) {
+    .storiesPage {
+        .storiesGrid {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .storiesFilters {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .storiesPage {
+        .storiesLink,
+        .storiesChip,
+        .storiesCardTitle {
+            transition: none;
+        }
+    }
+}

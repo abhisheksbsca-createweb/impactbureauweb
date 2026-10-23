@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap');
+
+.nominatePage {
+    --ink: #0e1b19;
+    --ink-soft: #132623;
+    --paper: #f3efe6;
+    --paper-muted: #b9c4bf;
+    --marigold: #f2b134;
+    --hairline: rgba(243, 239, 230, 0.14);
+
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: calc(100vh - 6.3rem);
+    min-height: calc(100dvh - 6.3rem);
+    padding: clamp(4rem, 9vh, 9rem) clamp(2.4rem, 5vw, 9rem);
+    background-color: var(--ink);
+    color: var(--paper);
+    font-family: 'Manrope', Arial, sans-serif;
+
+    .nominateInner {
+        width: 100%;
+        max-width: 140rem;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+        align-items: start;
+        gap: clamp(3rem, 6vw, 10rem);
+    }
+
+    // newsletter sits in a quiet panel, the nomination is the main action
+    .nominateLetter {
+        box-sizing: border-box;
+        padding: clamp(2.4rem, 3vw, 4.8rem);
+        background-color: var(--ink-soft);
+        border: 1px solid var(--hairline);
+        border-radius: 8px;
+    }
+
+    .nominateLetter,
+    .nominateNomination {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        min-width: 0;
+    }
+
+    .nominateKicker {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        margin: 0 0 2rem;
+        font-size: 1.4rem;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        color: var(--paper-muted);
+
+        &::before {
+            content: "";
+            flex: none;
+            width: 3.6rem;
+            height: 2px;
+            background: var(--marigold);
+        }
+    }
+
+    .nominateTitle {
+        margin: 0 0 1.6rem;
+        font-family: 'Newsreader', Georgia, serif;
+        font-size: clamp(3rem, 3.4vw, 5rem);
+        font-weight: 500;
+        line-height: 1.1;
+        letter-spacing: -0.025em;
+    }
+
+    .nominateText {
+        max-width: 46rem;
+        margin: 0 0 3.2rem;
+        font-size: 1.7rem;
+        line-height: 1.6;
+        color: var(--paper-muted);
+    }
+
+    .nominateForm {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2.6rem;
+    }
+
+    .nominateField {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+
+        label {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--paper-muted);
+        }
+
+        input,
+        textarea {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 0.9rem 0;
+            font-family: inherit;
+            font-size: 1.7rem;
+            color: var(--paper);
+            background: transparent;
+            border: none;
+            border-bottom: 1.5px solid rgba(243, 239, 230, 0.35);
+            border-radius: 0;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+            &:focus {
+                border-bottom-color: var(--marigold);
+                box-shadow: 0 1px 0 var(--marigold);
+            }
+        }
+
+        textarea {
+            min-height: 11rem;
+            line-height: 1.5;
+            resize: vertical;
+        }
+    }
+
+    .nominateButton {
+        padding: 1.4rem 2.8rem;
+        font-family: inherit;
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: var(--ink);
+        background-color: var(--marigold);
+        border: 1.5px solid var(--marigold);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+
+        &:hover {
+            background-color: #ffc355;
+            border-color: #ffc355;
+            transform: translateY(-2px);
+        }
+
+        &:focus-visible {
+            outline: 3px solid var(--paper);
+            outline-offset: 3px;
+        }
+    }
+
+    .nominateButtonOutline {
+        color: var(--paper);
+        background-color: transparent;
+        border-color: rgba(243, 239, 230, 0.4);
+
+        &:hover {
+            background-color: rgba(243, 239, 230, 0.06);
+            border-color: var(--paper);
+        }
+    }
+
+    .nominateDone {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+
+        p {
+            max-width: 44rem;
+            margin: 0;
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 2.4rem;
+            line-height: 1.35;
+        }
+    }
+
+    .nominateTextButton {
+        padding: 0.4rem 0;
+        font-family: inherit;
+        font-size: 1.7rem;
+        font-weight: 600;
+        color: var(--paper);
+        background: none;
+        border: none;
+        text-decoration: underline;
+        text-decoration-color: var(--marigold);
+        text-decoration-thickness: 2px;
+        text-underline-offset: 0.7rem;
+        cursor: pointer;
+
+        &:hover {
+            color: var(--marigold);
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--paper);
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .nominatePage .nominateInner {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nominatePage {
+        .nominateField input,
+        .nominateField textarea,
+        .nominateButton {
+            transition: none;
+        }
+
+        .nominateButton:hover {
+            transform: none;
+        }
+    }
+}

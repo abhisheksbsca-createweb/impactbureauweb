@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import Header from "../../header/Header";
+
 import './Home.scss'
 
 function Home() {
 
     return (
         <>
-            <Header />
+            
             <div className="homeContainer">
                 <div className="homeContnetmainBox">
                     <div className="homeTitleBox homeChildBox">
@@ -20,14 +20,13 @@ function Home() {
                     </div>
                     <div className="homeButtonBox homeChildBox">
                         <div className="homeBtnChild1">
-                            <Link to="user">watch the film first</Link>
+                            <Link to="impact-tv">watch the film first</Link>
                         </div>
-                        <div className="homeBtnChild2   ">
+                        <div className="homeBtnChild2">
                             <Link to="/">see our three pillars</Link>
                         </div>
                     </div>
                 </div>
-
             </div>
         </>
     )

@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap');
+
+.impactTvPage {
+    --ink: #0e1b19;
+    --ink-soft: #132623;
+    --paper: #f3efe6;
+    --paper-muted: #b9c4bf;
+    --marigold: #f2b134;
+    --hairline: rgba(243, 239, 230, 0.14);
+
+    box-sizing: border-box;
+    width: 100%;
+    min-height: calc(100vh - 6.3rem);
+    min-height: calc(100dvh - 6.3rem);
+    padding: clamp(4rem, 9vh, 9rem) clamp(2.4rem, 5vw, 9rem);
+    background-color: var(--ink);
+    color: var(--paper);
+    font-family: 'Manrope', Arial, sans-serif;
+
+    .impactTvInner {
+        max-width: 140rem;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: clamp(3.6rem, 7vh, 7rem);
+    }
+
+    .impactTvHeader {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 1.6rem 4rem;
+    }
+
+    .impactTvTitle {
+        margin: 0;
+        font-family: 'Newsreader', Georgia, serif;
+        font-size: clamp(4.2rem, 6vw, 8rem);
+        font-weight: 500;
+        line-height: 1;
+        letter-spacing: -0.03em;
+    }
+
+    .impactTvAll {
+        padding: 0.4rem 0;
+        font-size: 1.7rem;
+        font-weight: 600;
+        color: var(--paper);
+        text-decoration: underline;
+        text-decoration-color: var(--marigold);
+        text-decoration-thickness: 2px;
+        text-underline-offset: 0.7rem;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: var(--marigold);
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--paper);
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+    }
+
+    .impactTvGrid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: clamp(3rem, 4vw, 5rem) clamp(2.4rem, 3vw, 4.8rem);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+            min-width: 0;
+        }
+    }
+
+    .impactTvCard {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        color: inherit;
+        text-decoration: none;
+
+        &:focus-visible {
+            outline: 2px solid var(--paper);
+            outline-offset: 6px;
+            border-radius: 6px;
+        }
+    }
+
+    .impactTvThumb {
+        position: relative;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        margin-bottom: 1.8rem;
+        border: 1px solid var(--hairline);
+        border-radius: 6px;
+        background-color: var(--ink-soft);
+        background-image: linear-gradient(135deg, rgba(243, 239, 230, 0.07), transparent 60%);
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .impactTvPlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 6.4rem;
+        height: 6.4rem;
+        margin: -3.2rem 0 0 -3.2rem;
+        border-radius: 50%;
+        background-color: var(--paper);
+        transition: background-color 0.2s ease, transform 0.2s ease;
+
+        svg {
+            width: 2.6rem;
+            height: 2.6rem;
+            margin-left: 0.3rem;
+            fill: var(--ink);
+        }
+    }
+
+    .impactTvCard:hover .impactTvPlay {
+        background-color: var(--marigold);
+        transform: scale(1.06);
+    }
+
+    .impactTvDuration {
+        position: absolute;
+        right: 1.2rem;
+        bottom: 1.2rem;
+        padding: 0.3rem 0.8rem;
+        border-radius: 4px;
+        background-color: rgba(9, 20, 18, 0.88);
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--paper);
+    }
+
+    .impactTvType {
+        margin: 0 0 0.8rem;
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--marigold);
+    }
+
+    .impactTvCardTitle {
+        margin: 0 0 1rem;
+        font-family: 'Newsreader', Georgia, serif;
+        font-size: clamp(2.2rem, 2vw, 2.8rem);
+        font-weight: 500;
+        line-height: 1.25;
+        letter-spacing: -0.015em;
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 0.6rem;
+        transition: text-decoration-color 0.2s ease;
+    }
+
+    .impactTvCard:hover .impactTvCardTitle {
+        text-decoration-color: var(--marigold);
+    }
+
+    .impactTvSummary {
+        margin: 0;
+        font-size: 1.5rem;
+        line-height: 1.5;
+        color: var(--paper-muted);
+    }
+
+    .impactTvSr {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 1000px) {
+    .impactTvPage .impactTvGrid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .impactTvPage .impactTvHeader {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .impactTvPage {
+        .impactTvAll,
+        .impactTvPlay,
+        .impactTvCardTitle {
+            transition: none;
+        }
+
+        .impactTvCard:hover .impactTvPlay {
+            transform: none;
+        }
+    }
+}
