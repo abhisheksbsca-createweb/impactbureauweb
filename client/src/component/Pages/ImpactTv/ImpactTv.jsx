@@ -1,5 +1,5 @@
 import { FaPlay } from "react-icons/fa";
-import "./ImpactTV.scss";
+import "./ImpactTv.scss";
 
 const YOUTUBE_URL = "https://www.youtube.com/";
 
