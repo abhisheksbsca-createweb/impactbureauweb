@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FiChevronDown } from "react-icons/fi";
 import { getUser } from "../auth/Auth";
+import logo from "../../assets/IB LOGO.jpg.jpeg"
+
+
 import "./Header.scss";
 
 // Main menu, grouped by category, using only the pages that exist.
@@ -25,9 +28,9 @@ const MENU = [
             { label: "Impact TV", desc: "Films and long conversations", to: "/impact-tv" },
             { label: "Stories", desc: "Stories from the field", to: "/stories" },
         ],
-    },
+    }/* ,
     { id: "account", account: true }, // becomes Login, or Dashboard when logged in
-    { id: "nominate", label: "Nominate", to: "/nominate", cta: true },
+    { id: "nominate", label: "Nominate", to: "/nominate", cta: true }, */
 ];
 
 // Hover opens dropdowns only on wide screens with a mouse; touch and small screens use taps.
@@ -99,6 +102,7 @@ function Header() {
         <header className="headerContainer" ref={headerRef}>
             <div className="logo">
                 <Link to="/" onClick={closeAll}>
+                    <img src={logo} alt="Impact Bureau" className="headerlogo" />
                     <span>impact bureau</span>
                 </Link>
             </div>

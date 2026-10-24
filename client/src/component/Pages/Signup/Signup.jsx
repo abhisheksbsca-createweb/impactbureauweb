@@ -17,6 +17,7 @@ function Signup() {
         e.preventDefault();
         setError("");
         setSuccess("");
+        
 
         // simple checks before we call the server
         if (password.length < 6) {

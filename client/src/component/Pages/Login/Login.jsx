@@ -18,8 +18,9 @@ function Login() {
         e.preventDefault();
         setError("");
         setLoading(true);
+        console.log(email+password)
 
-        try {
+       /*  try {
 
                 const response = await fetch(API_URL + "/api/login", {
                 method: "POST",
@@ -41,7 +42,7 @@ function Login() {
             }
         } catch (err) {
             setError("Could not reach the server. Please try again.");
-        }
+        } */
 
         setLoading(false);
     }
