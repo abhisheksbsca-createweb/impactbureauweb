@@ -265,6 +265,34 @@
             color: var(--paper-muted);
         }
 
+        // a plain link in the bar (Login or Dashboard)
+        .menuLink {
+            display: flex;
+            align-items: stretch;
+
+            a {
+                display: flex;
+                align-items: center;
+                padding: 0 1.2rem;
+                font-size: 1.5rem;
+                font-weight: 500;
+                color: var(--paper-muted);
+                text-decoration: none;
+                white-space: nowrap;
+                transition: color 0.2s ease;
+
+                &:hover {
+                    color: var(--paper);
+                }
+
+                &:focus-visible {
+                    outline: 2px solid var(--paper);
+                    outline-offset: -6px;
+                    border-radius: 8px;
+                }
+            }
+        }
+
         // "nominate" is the one action in the bar
         .menuCta {
             align-self: center;
@@ -273,7 +301,6 @@
             border: 1.5px solid var(--marigold);
             border-radius: 8px;
             transition: background-color 0.2s ease;
-            width: 60%;
 
             a {
                 display: block;
@@ -397,6 +424,17 @@
 
             .submenuDesc {
                 display: none;
+            }
+
+            .menuLink {
+                border-bottom: 1px solid rgba(243, 239, 230, 0.1);
+
+                a {
+                    width: 100%;
+                    padding: 1.5rem 0.4rem;
+                    font-size: 1.8rem;
+                    color: var(--paper);
+                }
             }
 
             .menuCta {

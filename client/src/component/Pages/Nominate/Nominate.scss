@@ -165,44 +165,18 @@
         }
     }
 
-    .nominateDone {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 2rem;
-
-        p {
-            max-width: 44rem;
-            margin: 0;
-            font-family: 'Newsreader', Georgia, serif;
-            font-size: 2.4rem;
-            line-height: 1.35;
-        }
+    // message shown under a form after sending
+    .nominateMessage {
+        margin: 0;
+        font-size: 1.6rem;
+        line-height: 1.5;
+        color: var(--paper-muted);
     }
 
-    .nominateTextButton {
-        padding: 0.4rem 0;
-        font-family: inherit;
-        font-size: 1.7rem;
-        font-weight: 600;
-        color: var(--paper);
-        background: none;
-        border: none;
-        text-decoration: underline;
-        text-decoration-color: var(--marigold);
-        text-decoration-thickness: 2px;
-        text-underline-offset: 0.7rem;
-        cursor: pointer;
-
-        &:hover {
-            color: var(--marigold);
-        }
-
-        &:focus-visible {
-            outline: 2px solid var(--paper);
-            outline-offset: 4px;
-            border-radius: 4px;
-        }
+    .nominateButton:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
     }
 }
 

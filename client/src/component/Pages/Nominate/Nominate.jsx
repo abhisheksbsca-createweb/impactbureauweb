@@ -1,50 +1,74 @@
 import { useState } from "react";
 import "./Nominate.scss";
 
-const EMPTY_LETTER = { name: "", email: "" };
-const EMPTY_NOMINATION = { person: "", changed: "", contact: "" };
-
-// One labelled field. Pass as="textarea" for the multi-line one.
-function Field({ id, label, as: Tag = "input", ...props }) {
-    return (
-        <div className="nominateField">
-            <label htmlFor={id}>{label}</label>
-            <Tag id={id} {...props} />
-        </div>
-    );
-}
+// Address of your backend server. Change this when you deploy.
+const API_URL = "http://localhost:5000";
 
 function Nominate() {
-    const [letter, setLetter] = useState(EMPTY_LETTER);
-    const [nomination, setNomination] = useState(EMPTY_NOMINATION);
-    const [letterSent, setLetterSent] = useState(false);
-    const [nominationSent, setNominationSent] = useState(false);
+    // newsletter form
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [letterMessage, setLetterMessage] = useState("");
 
-    const onLetterChange = (e) => {
-        const { name, value } = e.target;
-        setLetter((prev) => ({ ...prev, [name]: value }));
-    };
+    // nomination form
+    const [person, setPerson] = useState("");
+    const [changed, setChanged] = useState("");
+    const [contact, setContact] = useState("");
+    const [nominationMessage, setNominationMessage] = useState("");
 
-    const onNominationChange = (e) => {
-        const { name, value } = e.target;
-        setNomination((prev) => ({ ...prev, [name]: value }));
-    };
-
-    const submitLetter = (e) => {
+    // send the newsletter form to the backend
+    async function handleSubscribe(e) {
         e.preventDefault();
-        // TODO: send `letter` to your API here, then show the confirmation.
-        setLetterSent(true);
-    };
+        setLetterMessage("Sending...");
 
-    const submitNomination = (e) => {
+        try {
+            const response = await fetch(API_URL + "/api/subscribe", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name: name, email: email }),
+            });
+
+            if (response.ok) {
+                setLetterMessage("Thank you. You are on the list for the next Impact Letter.");
+                setName("");
+                setEmail("");
+            } else {
+                setLetterMessage("Something went wrong. Please try again.");
+            }
+        } catch (error) {
+            setLetterMessage("Could not reach the server. Please try again.");
+        }
+    }
+
+    // send the nomination form to the backend
+    async function handleNomination(e) {
         e.preventDefault();
-        // TODO: send `nomination` to your API here, then show the confirmation.
-        setNominationSent(true);
-    };
+        setNominationMessage("Sending...");
+
+        try {
+            const response = await fetch(API_URL + "/api/nominations", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ person: person, changed: changed, contact: contact }),
+            });
+
+            if (response.ok) {
+                setNominationMessage("Thank you. We have received your nomination and will verify it before anything is published.");
+                setPerson("");
+                setChanged("");
+                setContact("");
+            } else {
+                setNominationMessage("Something went wrong. Please try again.");
+            }
+        } catch (error) {
+            setNominationMessage("Could not reach the server. Please try again.");
+        }
+    }
 
     return (
-        <section className="nominatePage" aria-label="Newsletter and nominations">
+        <section className="nominatePage">
             <div className="nominateInner">
+
                 {/* Newsletter */}
                 <div className="nominateLetter">
                     <p className="nominateKicker">Monthly and free</p>
@@ -53,47 +77,39 @@ function Nominate() {
                         One Creator of the Month and the month’s field notes, in your inbox. Nothing else.
                     </p>
 
-                    {letterSent ? (
-                        <div className="nominateDone" role="status">
-                            <p>Thank you. You are on the list for the next Impact Letter.</p>
-                            <button
-                                type="button"
-                                className="nominateTextButton"
-                                onClick={() => {
-                                    setLetter(EMPTY_LETTER);
-                                    setLetterSent(false);
-                                }}
-                            >
-                                Subscribe another email
-                            </button>
-                        </div>
-                    ) : (
-                        <form className="nominateForm" onSubmit={submitLetter}>
-                            <Field
+                    <form className="nominateForm" onSubmit={handleSubscribe}>
+                        <div className="nominateField">
+                            <label htmlFor="letterName">Name</label>
+                            <input
                                 id="letterName"
-                                label="Name"
-                                name="name"
                                 type="text"
-                                autoComplete="name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
                                 required
-                                value={letter.name}
-                                onChange={onLetterChange}
                             />
-                            <Field
+                        </div>
+
+                        <div className="nominateField">
+                            <label htmlFor="letterEmail">Email</label>
+                            <input
                                 id="letterEmail"
-                                label="Email"
-                                name="email"
                                 type="email"
-                                autoComplete="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 required
-                                value={letter.email}
-                                onChange={onLetterChange}
                             />
-                            <button type="submit" className="nominateButton nominateButtonOutline">
-                                Subscribe
-                            </button>
-                        </form>
-                    )}
+                        </div>
+
+                        <button
+                            type="submit"
+                            className="nominateButton nominateButtonOutline"
+                            disabled={letterMessage === "Sending..."}
+                        >
+                            Subscribe
+                        </button>
+
+                        {letterMessage && <p className="nominateMessage">{letterMessage}</p>}
+                    </form>
                 </div>
 
                 {/* Nomination */}
@@ -104,57 +120,52 @@ function Nominate() {
                         You don’t need to be them. They don’t need to be online.
                     </p>
 
-                    {nominationSent ? (
-                        <div className="nominateDone" role="status">
-                            <p>Thank you. We have received your nomination and will verify it before anything is published.</p>
-                            <button
-                                type="button"
-                                className="nominateTextButton"
-                                onClick={() => {
-                                    setNomination(EMPTY_NOMINATION);
-                                    setNominationSent(false);
-                                }}
-                            >
-                                Nominate someone else
-                            </button>
-                        </div>
-                    ) : (
-                        <form className="nominateForm" onSubmit={submitNomination}>
-                            <Field
+                    <form className="nominateForm" onSubmit={handleNomination}>
+                        <div className="nominateField">
+                            <label htmlFor="nominationPerson">Their name and village or district</label>
+                            <input
                                 id="nominationPerson"
-                                label="Their name and village or district"
-                                name="person"
                                 type="text"
+                                value={person}
+                                onChange={(e) => setPerson(e.target.value)}
                                 required
-                                value={nomination.person}
-                                onChange={onNominationChange}
                             />
-                            <Field
+                        </div>
+
+                        <div className="nominateField">
+                            <label htmlFor="nominationChanged">What have they changed?</label>
+                            <textarea
                                 id="nominationChanged"
-                                label="What have they changed?"
-                                as="textarea"
-                                name="changed"
-                                rows={4}
+                                rows="4"
+                                value={changed}
+                                onChange={(e) => setChanged(e.target.value)}
                                 required
-                                value={nomination.changed}
-                                onChange={onNominationChange}
                             />
-                            <Field
+                        </div>
+
+                        <div className="nominateField">
+                            <label htmlFor="nominationContact">Your phone or email</label>
+                            <input
                                 id="nominationContact"
-                                label="Your phone or email"
-                                name="contact"
                                 type="text"
-                                autoComplete="email"
+                                value={contact}
+                                onChange={(e) => setContact(e.target.value)}
                                 required
-                                value={nomination.contact}
-                                onChange={onNominationChange}
                             />
-                            <button type="submit" className="nominateButton">
-                                Submit nomination
-                            </button>
-                        </form>
-                    )}
+                        </div>
+
+                        <button
+                            type="submit"
+                            className="nominateButton"
+                            disabled={nominationMessage === "Sending..."}
+                        >
+                            Submit nomination
+                        </button>
+
+                        {nominationMessage && <p className="nominateMessage">{nominationMessage}</p>}
+                    </form>
                 </div>
+
             </div>
         </section>
     );

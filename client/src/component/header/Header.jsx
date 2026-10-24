@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FiChevronDown } from "react-icons/fi";
+import { getUser } from "../auth/Auth";
 import "./Header.scss";
 
 // Main menu, grouped by category, using only the pages that exist.
@@ -25,6 +26,7 @@ const MENU = [
             { label: "Stories", desc: "Stories from the field", to: "/stories" },
         ],
     },
+    { id: "account", account: true }, // becomes Login, or Dashboard when logged in
     { id: "nominate", label: "Nominate", to: "/nominate", cta: true },
 ];
 
@@ -38,6 +40,12 @@ function Header() {
     const [openId, setOpenId] = useState(null);
     const headerRef = useRef(null);
     const { pathname } = useLocation();
+
+    // Login when logged out, Dashboard (admin or user) when logged in
+    const user = getUser();
+    const accountLink = user
+        ? { id: "account", label: "Dashboard", to: user.role === "admin" ? "/admin" : "/dashboard" }
+        : { id: "account", label: "Login", to: "/login" };
 
     const closeAll = () => {
         setOpenId(null);
@@ -111,10 +119,12 @@ function Header() {
 
             <nav id="mainMenu" className={`menubar${mobileOpen ? " menubarOpen" : ""}`} aria-label="Main">
                 <ul className="menuList">
-                    {MENU.map((entry) => {
+                    {MENU.map((menuItem) => {
+                        const entry = menuItem.account ? accountLink : menuItem;
+
                         if (!entry.items) {
                             return (
-                                <li key={entry.id} className="menuCta">
+                                <li key={entry.id} className={entry.cta ? "menuCta" : "menuLink"}>
                                     <Link to={entry.to} onClick={closeAll}>
                                         <span>{entry.label}</span>
                                     </Link>

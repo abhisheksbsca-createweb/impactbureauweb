@@ -10,12 +10,18 @@ import WhereWeWork from './component/Pages/WhereWeWork/WhereWeWork.jsx';
 import MoreAbout from './component/Pages/MoreAbout/MoreAbout.jsx';
 import Nominate from './component/Pages/Nominate/Nominate.jsx';
 import Footer from './component/Pages/Footer/Footer.jsx';
+import Login from './component/Pages/Login/Login.jsx';
+import Signup from './component/Pages/Signup/Signup.jsx';
+import ProtectedRoute from './component/auth/ProtectedRoutes.jsx';
+import UserDashboard from './component/Pages/UserDashboard/UserDashboard.jsx';
+import AdminDashboard from './component/Pages/AdminDashboard/AdminDashboard.jsx';
 function App() {
 
   return (
 
     <BrowserRouter>
       <Header />
+   
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/ourmission" element={<OurMission />} />
@@ -25,9 +31,13 @@ function App() {
         <Route path="/impact-tv" element={<ImpactTV />} />
         <Route path="/stories" element={<Story />} />
         <Route path="/nominate" element={<Nominate />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/dashboard" element={<ProtectedRoute role="user"><UserDashboard /></ProtectedRoute>} />
+        <Route path="/admin" element={<ProtectedRoute role="admin"><AdminDashboard /></ProtectedRoute>} />
 
       </Routes>
-      <Footer/>
+      <Footer />
     </BrowserRouter>
 
   )

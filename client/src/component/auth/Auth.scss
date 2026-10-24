@@ -1,0 +1,319 @@
+/*
+  Auth.css  (used by the Login and Signup pages)
+  Put this file at: src/styles/Auth.css
+
+  Plain CSS: no nesting, no clamp(). 1rem = 10px in this project, so 1.6rem = 16px.
+
+  COLORS come from src/styles/variables.css (the :root block).
+  Here we only write var(--color-name). To change a color, edit it in variables.css.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:wght@400;500;600&display=swap');
+
+/*
+  variables.css  (all site colors live here)
+  Put this file at: src/styles/variables.css
+  Import it ONCE in src/main.jsx:   import "./styles/variables.css";
+
+  To change a color on the whole site, change it here. Nothing else.
+*/
+
+:root {
+    /* backgrounds */
+    --color-bg: #0e1b19;
+    /* page background (dark green) */
+    --color-card: #132623;
+    /* cards and panels */
+
+    /* text */
+    --color-text: #f3efe6;
+    /* main text (off white) */
+    --color-text-soft: #b9c4bf;
+    /* labels and small text */
+
+    /* accent (buttons, links, focus) */
+    --color-accent: #f2b134;
+    --color-accent-hover: #ffc355;
+    /* accent when the mouse is over it */
+    --color-accent-glow: rgba(242, 177, 52, 0.25);
+    /* soft ring around a focused input */
+
+    /* lines */
+    --color-border: #2e3936;
+    /* card border */
+    --color-input-border: #4a5753;
+    /* input border */
+
+    /* messages */
+    --color-error: #ffb4a8;
+}
+
+
+/* ---------- 1. THE WHOLE PAGE ---------- */
+/* Text on the left, card on the right.
+   The 6.3rem is the height of the header, so the page fills the rest of the screen. */
+.authPage {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: calc(100vh - 6.3rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8rem;
+    padding: 8rem 9rem;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: 'Manrope', Arial, sans-serif;
+}
+
+
+/* ---------- 2. LEFT SIDE: heading and text ---------- */
+.authIntro {
+    flex: 1;
+    max-width: 56rem;
+}
+
+/* small "Impact Bureau" word above the heading */
+.authLabel {
+    margin: 0 0 2rem 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-accent);
+}
+
+/* big heading: "Welcome back." / "Join the record." */
+.authTitle {
+    margin: 0 0 2rem 0;
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 6.4rem;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+/* paragraph under the heading */
+.authText {
+    margin: 0;
+    max-width: 42rem;
+    font-size: 1.8rem;
+    line-height: 1.6;
+    color: var(--color-text-soft);
+}
+
+
+/* ---------- 3. RIGHT SIDE: the card ---------- */
+.authCard {
+    box-sizing: border-box;
+    width: 44rem;
+    max-width: 100%;
+    padding: 4rem;
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+}
+
+/* "Log in" / "Create account" */
+.authCardTitle {
+    margin: 0 0 2.8rem 0;
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 3.2rem;
+    font-weight: 500;
+}
+
+
+/* ---------- 4. THE FORM ---------- */
+.authForm {
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+}
+
+/* one label + one input */
+.authField {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.authField label {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--color-text-soft);
+}
+
+.authField input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1.3rem 1.5rem;
+    font-family: inherit;
+    font-size: 1.6rem;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    border: 1.5px solid var(--color-input-border);
+    border-radius: 8px;
+    outline: none;
+}
+
+/* when you click inside an input, the border turns accent color */
+.authField input:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-accent-glow);
+}
+
+
+/* ---------- 5. PASSWORD BOX WITH THE EYE BUTTON ---------- */
+.authPasswordBox {
+    position: relative;
+}
+
+/* extra space on the right so text does not go under the eye */
+.authPasswordBox input {
+    padding-right: 5rem;
+}
+
+.authEye {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.6rem;
+    height: 3.6rem;
+    padding: 0;
+    font-size: 2rem;
+    color: var(--color-text-soft);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.authEye:hover {
+    color: var(--color-text);
+}
+
+
+/* ---------- 6. MESSAGES ---------- */
+.authError {
+    margin: 0;
+    font-size: 1.4rem;
+    color: var(--color-error);
+}
+
+.authSuccess {
+    margin: 0;
+    font-size: 1.4rem;
+    color: var(--color-accent);
+}
+
+
+/* ---------- 7. THE BUTTON ---------- */
+.authButton {
+    padding: 1.4rem;
+    font-family: inherit;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--color-bg);
+    background-color: var(--color-accent);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.authButton:hover {
+    background-color: var(--color-accent-hover);
+}
+
+/* while the form is sending */
+.authButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* ---------- 8. "New here? Create an account" LINE ---------- */
+.authSwitch {
+    margin: 2.4rem 0 0 0;
+    font-size: 1.5rem;
+    color: var(--color-text-soft);
+}
+
+.authSwitch a {
+    font-weight: 600;
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.authSwitch a:hover {
+    text-decoration: underline;
+}
+
+
+/* ---------- 9. SMALLER SCREENS ---------- */
+
+/* laptop and small desktop */
+@media (max-width: 1100px) {
+    .authPage {
+
+        padding: 6rem 4rem;
+
+        min-height: auto;
+
+    }
+
+    .authIntro {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .authTitle {
+        font-size: 5.2rem;
+    }
+}
+
+/* tablet and phone: heading on top, card below, full width */
+@media (max-width: 900px) {
+    .authPage {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 3rem;
+        padding: 4rem 2.4rem;
+
+    }
+
+    .authIntro {
+        max-width: none;
+    }
+
+    .authTitle {
+        margin-bottom: 0;
+        font-size: 3.8rem;
+    }
+
+    /* the paragraph is hidden on small screens to save space */
+    .authText {
+        display: none;
+    }
+
+    .authCard {
+        width: 100%;
+        padding: 2.8rem;
+    }
+}
+
+/* small phone */
+@media (max-width: 480px) {
+    .authPage {
+        padding: 3rem 1.6rem;
+    }
+
+    .authTitle {
+        font-size: 3.2rem;
+    }
+
+    .authCard {
+        padding: 2.4rem 2rem;
+    }
+}
