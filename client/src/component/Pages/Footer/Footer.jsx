@@ -33,7 +33,7 @@ const COLUMNS = [
         links: [
             { label: "YouTube", href: "https://youtube.com/@impactbureau?si=ywzcNMiDs7soU_fK/" },
             { label: "Instagram", href: "https://www.instagram.com/" },
-            { label: "LinkedIn", href: "https://www.linkedin.com/" },
+            
         ],
     },
 ];

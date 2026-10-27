@@ -1,4 +1,6 @@
 import { FaPlay } from "react-icons/fa";
+import summitthubnail from "../../../assets/summitthubnail.jpeg";
+import teacherthubnail from "../../../assets/teacherthubnail.jpeg";
 import "./ImpactTv.scss";
 
 const YOUTUBE_URL = "https://youtu.be/jqsshcccb90?si=GxrTNBXr-qrBCpoo/";
@@ -6,12 +8,21 @@ const YOUTUBE_URL = "https://youtu.be/jqsshcccb90?si=GxrTNBXr-qrBCpoo/";
 // Replace `image: null` with an imported thumbnail and `url` with each video's YouTube link.
 const VIDEOS = [
     {
+        id: 3,
+        type: "Summit 2026",
+        title: "Creators Impact Summit 2026: the full record",
+        summary: "250 creators, one room.",
+        duration: "[mm:ss]",
+        image: summitthubnail,
+        url: "https://youtu.be/AW5rUQRwKT0/",
+    },
+    {
         id: 1,
         type: "Documentary",
         title: "[The One Who Teaches | Short Film on People Behind Every Lesson | Shivbrat Singh Children Academy]",
         summary: "[One line on who it follows.]",
         duration: "[mm:ss]",
-        image: null,
+        image: teacherthubnail,
         url: "https://youtu.be/jqsshcccb90?si=GxrTNBXr-qrBCpoo/",
     },
     {
@@ -21,16 +32,7 @@ const VIDEOS = [
         summary: "With [Name], [what they do].",
         duration: "[mm:ss]",
         image: null,
-        url: "https://youtu.be/AW5rUQRwKT0/",
-    },
-    {
-        id: 3,
-        type: "Summit 2026",
-        title: "Creators Impact Summit 2026: the full record",
-        summary: "250 creators, one room.",
-        duration: "[mm:ss]",
-        image: null,
-        url: YOUTUBE_URL,
+        url: "https://youtu.be/jqsshcccb90?si=GxrTNBXr-qrBCpoo/",
     },
 ];
 
