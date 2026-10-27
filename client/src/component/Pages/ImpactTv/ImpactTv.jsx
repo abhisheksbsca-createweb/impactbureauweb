@@ -12,7 +12,7 @@ const VIDEOS = [
         summary: "[One line on who it follows.]",
         duration: "[mm:ss]",
         image: null,
-        url: YOUTUBE_URL,
+        url: "https://youtu.be/jqsshcccb90?si=GxrTNBXr-qrBCpoo/",
     },
     {
         id: 2,
@@ -21,7 +21,7 @@ const VIDEOS = [
         summary: "With [Name], [what they do].",
         duration: "[mm:ss]",
         image: null,
-        url: YOUTUBE_URL,
+        url: "https://youtu.be/AW5rUQRwKT0/",
     },
     {
         id: 3,

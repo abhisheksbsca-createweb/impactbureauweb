@@ -28,9 +28,11 @@ const MENU = [
             { label: "Impact TV", desc: "Films and long conversations", to: "/impact-tv" },
             { label: "Stories", desc: "Stories from the field", to: "/stories" },
         ],
-    }/* ,
-    { id: "account", account: true }, // becomes Login, or Dashboard when logged in
-    { id: "nominate", label: "Nominate", to: "/nominate", cta: true }, */
+    }
+    ,
+    /* ,
+    { id: "account", account: true }, // becomes Login, or Dashboard when logged in */
+    { id: "nominate", label: "Nominate", to: "/nominate", cta: true }, 
 ];
 
 // Hover opens dropdowns only on wide screens with a mouse; touch and small screens use taps.

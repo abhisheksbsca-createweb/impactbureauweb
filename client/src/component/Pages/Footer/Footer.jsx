@@ -31,7 +31,7 @@ const COLUMNS = [
     {
         heading: "Follow",
         links: [
-            { label: "YouTube", href: "https://www.youtube.com/" },
+            { label: "YouTube", href: "https://youtube.com/@impactbureau?si=ywzcNMiDs7soU_fK/" },
             { label: "Instagram", href: "https://www.instagram.com/" },
             { label: "LinkedIn", href: "https://www.linkedin.com/" },
         ],
@@ -39,11 +39,11 @@ const COLUMNS = [
 ];
 
 const LEGAL = [
-    { label: "Privacy", to: "/privacy" },
-    { label: "Terms", to: "/terms" },
+    { label: "Privacy", to: "/" },
+    { label: "Terms", to: "/" },
 ];
 
-const CONTACT_EMAIL = "contact@domain";
+const CONTACT_EMAIL = "info@impactbureau.org";
 
 function FooterLink({ link }) {
     if (link.to) {
@@ -87,7 +87,7 @@ function Footer() {
                 <div className="siteFooterBottom">
                     <p className="siteFooterMeta">
                         <span>© {new Date().getFullYear()} Impact Bureau</span>
-                        <span>[Registered address]</span>
+                        <span>[Argupur Kalan,Jaunpur]</span>
                     </p>
                     <p className="siteFooterMeta">
                         {LEGAL.map((item) => (
