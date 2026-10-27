@@ -31,7 +31,7 @@ const MENU = [
     }
     ,
     
-    { id: "account", account: true }, // becomes Login, or Dashboard when logged in 
+    // { id: "account", account: true }, // becomes Login, or Dashboard when logged in 
     { id: "nominate", label: "Nominate", to: "/nominate", cta: true }, 
 ];
 

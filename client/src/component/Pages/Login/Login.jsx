@@ -8,44 +8,77 @@ import "../../auth/Auth.scss";
 function Login() {
     const navigate = useNavigate();
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [showPassword, setShowPassword] = useState(false);
-    const [error, setError] = useState("");
-    const [loading, setLoading] = useState(false);
+    /*  const [email, setEmail] = useState("");
+     const [password, setPassword] = useState("");
+     const [showPassword, setShowPassword] = useState(false);
+     const [error, setError] = useState("");
+     const [loading, setLoading] = useState(false); */
+     
+     const [loading, setLoading] = useState(false);
+     const [error, setError] = useState("");
+     const [showPassword, setShowPassword] = useState(false);
 
+
+    const [formData, setFormData] = useState({});
+
+    const handleChange = (e) => {
+        let { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+
+    }
+
+    const [users, setUser] = useState([{
+        email: " ",
+        password: " ",
+    }
+    ]);
+
+    const handleLogin = (e) =>{
+        e.preventDefault();
+        setUser(...users, formData);
+        setFormData({
+            email:"",
+            password:""
+        })
+        console.log(formData)
+        console.log(users)
+    }
+
+    /* 
     async function handleLogin(e) {
         e.preventDefault();
         setError("");
         setLoading(true);
-        console.log(email+password)
+        console.log(email + password)
 
-       /*  try {
-
-                const response = await fetch(API_URL + "/api/login", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email: email, password: password }),
-            });
-            const data = await response.json();
-
-            if (response.ok) {
-                saveLogin(data);
-                // each role has its own dashboard
-                if (data.user.role === "admin") {
-                    navigate("/admin");
-                } else {
-                    navigate("/dashboard");
-                }
-            } else {
-                setError(data.message || "Wrong email or password.");
-            }
-        } catch (err) {
-            setError("Could not reach the server. Please try again.");
-        } */
+         try {
+ 
+                 const response = await fetch(API_URL + "/api/login", {
+                 method: "POST",
+                 headers: { "Content-Type": "application/json" },
+                 body: JSON.stringify({ email: email, password: password }),
+             });
+             const data = await response.json();
+ 
+             if (response.ok) {
+                 saveLogin(data);
+                 // each role has its own dashboard
+                 if (data.user.role === "admin") {
+                     navigate("/admin");
+                 } else {
+                     navigate("/dashboard");
+                 }
+             } else {
+                 setError(data.message || "Wrong email or password.");
+             }
+         } catch (err) {
+             setError("Could not reach the server. Please try again.");
+         } 
 
         setLoading(false);
     }
+
+    */
 
     return (
         <section className="authPage">
@@ -65,9 +98,10 @@ function Login() {
                         <label htmlFor="loginEmail">Email</label>
                         <input
                             id="loginEmail"
+                            name="email"
                             type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            value={formData.email}
+                            onChange={handleChange}
                             required
                         />
                     </div>
@@ -78,8 +112,9 @@ function Login() {
                             <input
                                 id="loginPassword"
                                 type={showPassword ? "text" : "password"}
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
+                                name="password"
+                                value={formData.password}
+                                onChange={handleChange}
                                 required
                             />
                             <button

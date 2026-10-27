@@ -68,7 +68,7 @@ function Home() {
 
                 <div className="homeContnetmainBox">
                     <div className="homeTitleBox homeChildBox">
-                        <span>Impact Bureau · Est. 2026</span>
+                        <span>Impact Bureau {/* · Est. 2026 */}</span>
                     </div>
                     <div className="homeHeadingBox homeChildBox">
                         <span>Most of the good work in this country is never recorded.</span>
