@@ -9,7 +9,7 @@ const WORK = [
         verb: "Document",
         image: null,
         imageLabel: "Still from a film shoot",
-        stat: "[N]",
+       
         statLabel: "films and conversations published",
         title: "Impact originals",
         text: "Documentaries and long conversations with the people doing the work, filmed where it happens.",
@@ -22,7 +22,7 @@ const WORK = [
         verb: "Record",
         image: null,
         imageLabel: "Magazine cover or spread",
-        stat: "[N]",
+       
         statLabel: "changemakers profiled",
         title: "Impact Magazine",
         text: "A monthly record: one Creator of the Month, field notes, and the issues underneath the work.",
@@ -35,7 +35,7 @@ const WORK = [
         verb: "Recognise",
         image: null,
         imageLabel: "Summit 2026: the audience, not the stage",
-        stat: "250",
+        // stat: "250",
         statLabel: "rural and urban creators invited, 2026",
         title: "Creators Impact Summit",
         text: "Once a year, changemakers in one room. Work that moved something real is recognised, and supported to continue.",
@@ -69,7 +69,7 @@ function OurWork() {
                                     <span className="ourWorkStepNo">{item.step}</span>
                                     <span>{item.verb}</span>
                                 </p>
-                                <p className="ourWorkStat">{item.stat}</p>
+                                {/* <p className="ourWorkStat">{item.stat}</p> */}
                                 <p className="ourWorkStatLabel">{item.statLabel}</p>
                                 <h2 className="ourWorkCardTitle">{item.title}</h2>
                                 <p className="ourWorkText">{item.text}</p>

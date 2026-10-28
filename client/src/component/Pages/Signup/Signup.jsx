@@ -12,8 +12,8 @@ function Signup() {
     // const [error, setError] = useState("");
     // const [success, setSuccess] = useState("");
     // const [loading, setLoading] = useState(false);
-    
-    
+
+
     /*  async function handleSignup(e) {
          e.preventDefault();
          setError("");
@@ -57,41 +57,36 @@ function Signup() {
      }
   */
 
-     const [confirmPassword, setConfirmPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
     const [loading, setLoading] = useState(false);
 
 
-    const [formData, setFormData] = useState({});
+    const [formData, setFormData] = useState({
+        email: "",
+        password: ""
+    });
 
     const handleChange = (e) => {
-       
         const { name, value } = e.target;
-        
         setFormData({ ...formData, [name]: value });
-        
+
     }
-    const [signupUser, setSignupUser] = useState([{
-        email: " ",
-        password: " "
-    }])
-
-
 
     const handleSignup = (e) => {
         e.preventDefault();
-        setSignupUser(...signupUser, formData);
-        
         setFormData({
-            email:"",
-            password:""
+            email: "",
+            password: ""
         })
-        
-        console.log(signupUser);
+        setConfirmPassword("")
+        console.log(formData,confirmPassword);
 
     }
+
+
     return (
         <section className="authPage">
             <div className="authIntro">
@@ -126,7 +121,7 @@ function Signup() {
                                 type={showPassword ? "text" : "password"}
                                 name="password"
                                 value={formData.password}
-                                onChange={handleChange }
+                                onChange={handleChange}
                                 required
                             />
                             <button
@@ -146,7 +141,7 @@ function Signup() {
                             id="signupConfirm"
                             type={showPassword ? "text" : "password"}
                             value={confirmPassword}
-                            onChange={(e)=>setConfirmPassword(e.target.value)}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
                             required
                         />
                     </div>

@@ -23,7 +23,7 @@ function OurStory() {
                             <p className="ourStoryFactText">years of Shri Vishwanath Shiksha Samiti bringing education to the region</p>
                         </div>
                         <div className="ourStoryFact">
-                            <p className="ourStoryFactNumber">30,000+</p>
+                            <p className="ourStoryFactNumber">35,000+</p>
                             <p className="ourStoryFactText">students served by its institutions today</p>
                         </div>
                     </div>

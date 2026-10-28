@@ -7,7 +7,7 @@ import Story from './component/Pages/Story/Story.jsx';
 import OurWork from './component/Pages/OurWork/OurWork.jsx';
 import ImpactTV from './component/Pages/ImpactTv/ImpactTv.jsx';
 import WhereWeWork from './component/Pages/WhereWeWork/WhereWeWork.jsx';
-import MoreAbout from './component/Pages/MoreAbout/MoreAbout.jsx';
+import MoreAbout from './component/Pages/MoreAboutUS/MoreAbout/MoreAbout.jsx';
 import Nominate from './component/Pages/Nominate/Nominate.jsx';
 import Footer from './component/Pages/Footer/Footer.jsx';
 import Login from './component/Pages/Login/Login.jsx';
@@ -15,8 +15,9 @@ import Signup from './component/Pages/Signup/Signup.jsx';
 import ProtectedRoute from './component/auth/ProtectedRoutes.jsx';
 // import UserDashboard from './component/Pages/UserDashboard/UserDashboard.jsx';
 // import AdminDashboard from './component/Pages/AdminDashboard/AdminDashboard.jsx';
-import HowWeVerify from './component/Pages/How we verify/HowWeVerify.jsx';
-import OurStory from './component/Pages/OurStory/OurStory.jsx';
+import HowWeVerify from './component/Pages/MoreAboutUS/How we verify/HowWeVerify.jsx';
+import OurStory from './component/Pages/MoreAboutUS/OurStory/OurStory.jsx';
+import WhoBelongsHere from './component/Pages/MoreAboutUS/WhoBelongsHere/WhoBelongsHere.jsx';
 function App() {
 
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route index element={<MoreAbout />} />
           <Route path="howweverify" element={<HowWeVerify />} />
           <Route path="ourstory" element={<OurStory />} />
+          <Route path="whobelongs" element={<WhoBelongsHere />} />
 
         </Route>
 

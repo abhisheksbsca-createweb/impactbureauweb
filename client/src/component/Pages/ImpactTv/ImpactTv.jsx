@@ -25,15 +25,15 @@ const VIDEOS = [
         image: teacherthubnail,
         url: "https://youtu.be/jqsshcccb90?si=GxrTNBXr-qrBCpoo/",
     },
-    {
-        id: 2,
-        type: "Conversation",
-        title: "[Podcast episode title]",
-        summary: "With [Name], [what they do].",
-        duration: "[mm:ss]",
-        image: null,
-        url: "https://youtu.be/jqsshcccb90?si=GxrTNBXr-qrBCpoo/",
-    },
+    // {
+    //     id: 2,
+    //     type: "Conversation",
+    //     title: "[Podcast episode title]",
+    //     summary: "With [Name], [what they do].",
+    //     duration: "[mm:ss]",
+    //     image: null,
+    //     url: "https://youtu.be/jqsshcccb90?si=GxrTNBXr-qrBCpoo/",
+    // },
 ];
 
 function ImpactTV() {
