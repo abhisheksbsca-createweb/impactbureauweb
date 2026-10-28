@@ -59,7 +59,7 @@ function OurMission (){
             <div className="ourMissionBox">
 
                 {/* ===== LEFT SIDE: founder photo ===== */}
-                <div className="ourMissionLeft">
+               {/*  <div className="ourMissionLeft">
                     <div className="ourMissionPhoto">
                         {founder ? (
                             <img src={founder} alt="Shashank Singh, Founder" />
@@ -72,7 +72,7 @@ function OurMission (){
                         <p className="ourMissionRole">Founder, Impact Bureau</p>
                     </div>
                 </div>
-
+ */}
                 {/* ===== RIGHT SIDE: mission message and founder's letter ===== */}
                 <div className="ourMissionRight">
 

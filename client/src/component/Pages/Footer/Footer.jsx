@@ -87,7 +87,7 @@ function Footer() {
                 <div className="siteFooterBottom">
                     <p className="siteFooterMeta">
                         <span>© {new Date().getFullYear()} Impact Bureau</span>
-                        <span>[Argupur Kalan,Jaunpur]</span>
+                        
                     </p>
                     <p className="siteFooterMeta">
                         {LEGAL.map((item) => (
