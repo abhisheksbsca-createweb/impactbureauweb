@@ -1,0 +1,254 @@
+/*
+  OurStory.css
+  Put this file next to OurStory.jsx.
+
+  Plain CSS. Colors come from the :root block in variables.css,
+  so to change a color, change it there. 1rem = 10px in this project.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:wght@400;500;600&display=swap');
+
+
+/* ---------- 1. THE WHOLE PAGE ---------- */
+.ourStoryPage {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 8rem 9rem;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: 'Manrope', Arial, sans-serif;
+}
+
+/* keeps very wide screens from stretching the text too far */
+.ourStoryInner {
+    max-width: 140rem;
+    margin: 0 auto;
+}
+
+
+/* ---------- 2. TITLE AT THE TOP ---------- */
+.ourStoryTop {
+    padding-bottom: 6rem;
+}
+
+.ourStoryLabel {
+    margin: 0 0 2rem 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-accent);
+}
+
+.ourStoryTitle {
+    margin: 0 0 3rem 0;
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 7.2rem;
+    font-weight: 500;
+    line-height: 1.05;
+}
+
+/* the first line of the story, written large */
+.ourStoryLead {
+    margin: 0;
+    max-width: 80rem;
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 3.2rem;
+    line-height: 1.3;
+    color: var(--color-text);
+}
+
+
+/* ---------- 3. TWO COLUMNS: numbers on the left, story on the right ---------- */
+.ourStoryLayout {
+    display: flex;
+    gap: 8rem;
+    padding-top: 6rem;
+    border-top: 1px solid var(--color-border);
+}
+
+
+/* ---------- 4. LEFT SIDE: THE NUMBERS ---------- */
+.ourStoryFacts {
+    flex: 0 0 32rem;
+}
+
+.ourStoryFact {
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.ourStoryFact:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+/* the big number */
+.ourStoryFactNumber {
+    margin: 0 0 1rem 0;
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 6.4rem;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--color-accent);
+}
+
+.ourStoryFactText {
+    margin: 0;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: var(--color-text-soft);
+}
+
+
+/* ---------- 5. RIGHT SIDE: THE STORY ---------- */
+.ourStoryText {
+    flex: 1;
+    min-width: 0;
+    max-width: 76rem;
+}
+
+/* normal paragraph */
+.ourStoryParagraph {
+    margin: 0 0 3rem 0;
+    font-size: 1.9rem;
+    line-height: 1.8;
+    color: var(--color-text-soft);
+}
+
+/* the sentence that turns the story, with a line on its left */
+.ourStoryQuote {
+    margin: 4rem 0;
+    padding-left: 2.8rem;
+    border-left: 3px solid var(--color-accent);
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 3.4rem;
+    line-height: 1.3;
+    color: var(--color-text);
+}
+
+/* the last statement */
+.ourStoryClosing {
+    margin: 5rem 0 0 0;
+    padding-top: 4rem;
+    border-top: 1px solid var(--color-border);
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 3.4rem;
+    line-height: 1.3;
+    color: var(--color-text);
+}
+
+
+/* ---------- 6. SMALLER SCREENS ---------- */
+
+/* laptop and small desktop */
+@media (max-width: 1100px) {
+    .ourStoryPage {
+        padding: 6rem 4rem;
+    }
+
+    .ourStoryTitle {
+        font-size: 6rem;
+    }
+
+    .ourStoryLead {
+        font-size: 2.8rem;
+    }
+
+    .ourStoryLayout {
+        gap: 5rem;
+    }
+
+    .ourStoryFacts {
+        flex: 0 0 26rem;
+    }
+
+    .ourStoryFactNumber {
+        font-size: 5.2rem;
+    }
+
+    .ourStoryQuote,
+    .ourStoryClosing {
+        font-size: 3rem;
+    }
+}
+
+/* tablet and phone: the two numbers go side by side on top, the story below */
+@media (max-width: 900px) {
+    .ourStoryPage {
+        padding: 4rem 2.4rem;
+    }
+
+    .ourStoryTop {
+        padding-bottom: 4rem;
+    }
+
+    .ourStoryTitle {
+        font-size: 4.6rem;
+    }
+
+    .ourStoryLead {
+        font-size: 2.4rem;
+    }
+
+    .ourStoryLayout {
+        flex-direction: column;
+        gap: 4rem;
+        padding-top: 4rem;
+    }
+
+    .ourStoryFacts {
+        flex: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2.4rem;
+    }
+
+    .ourStoryFact,
+    .ourStoryFact:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    .ourStoryParagraph {
+        font-size: 1.8rem;
+    }
+
+    .ourStoryQuote,
+    .ourStoryClosing {
+        font-size: 2.6rem;
+    }
+}
+
+/* small phone */
+@media (max-width: 480px) {
+    .ourStoryPage {
+        padding: 3rem 1.6rem;
+    }
+
+    .ourStoryTitle {
+        font-size: 3.8rem;
+    }
+
+    .ourStoryLead {
+        font-size: 2.2rem;
+    }
+
+    .ourStoryFactNumber {
+        font-size: 4rem;
+    }
+
+    .ourStoryFactText {
+        font-size: 1.4rem;
+    }
+
+    .ourStoryQuote {
+        padding-left: 2rem;
+        font-size: 2.3rem;
+    }
+
+    .ourStoryClosing {
+        font-size: 2.3rem;
+    }
+}

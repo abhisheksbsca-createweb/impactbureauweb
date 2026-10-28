@@ -69,6 +69,7 @@ function Signup() {
     const handleChange = (e) => {
        
         const { name, value } = e.target;
+        
         setFormData({ ...formData, [name]: value });
         
     }
@@ -82,6 +83,7 @@ function Signup() {
     const handleSignup = (e) => {
         e.preventDefault();
         setSignupUser(...signupUser, formData);
+        
         setFormData({
             email:"",
             password:""

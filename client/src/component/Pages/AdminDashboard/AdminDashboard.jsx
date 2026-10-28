@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiFileText, FiMail, FiClock, FiLogOut } from "react-icons/fi";
 import { API_URL, getToken, getUser, logout, getGreeting, getNameFromEmail } from "../../auth/Auth";
-import "../../auth/Auth.scss";
+import "../../styles/Dashboard.scss";
 
 // 24 Oct 2026
 function formatDate(value) {

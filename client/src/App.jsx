@@ -13,28 +13,39 @@ import Footer from './component/Pages/Footer/Footer.jsx';
 import Login from './component/Pages/Login/Login.jsx';
 import Signup from './component/Pages/Signup/Signup.jsx';
 import ProtectedRoute from './component/auth/ProtectedRoutes.jsx';
-import UserDashboard from './component/Pages/UserDashboard/UserDashboard.jsx';
-import AdminDashboard from './component/Pages/AdminDashboard/AdminDashboard.jsx';
+// import UserDashboard from './component/Pages/UserDashboard/UserDashboard.jsx';
+// import AdminDashboard from './component/Pages/AdminDashboard/AdminDashboard.jsx';
+import HowWeVerify from './component/Pages/How we verify/HowWeVerify.jsx';
+import OurStory from './component/Pages/OurStory/OurStory.jsx';
 function App() {
 
   return (
 
     <BrowserRouter>
       <Header />
-   
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/ourmission" element={<OurMission />} />
         <Route path="/where-we-work" element={<WhereWeWork />} />
-        <Route path="/more-about" element={<MoreAbout />} />
+        {/* <Route path="/more-about" element={<MoreAbout />} /> */}
+        <Route path="more-about">
+          <Route index element={<MoreAbout />} />
+          <Route path="howweverify" element={<HowWeVerify />} />
+          <Route path="ourstory" element={<OurStory />} />
+
+        </Route>
+
         <Route path="/ourwork" element={<OurWork />} />
         <Route path="/impact-tv" element={<ImpactTV />} />
         <Route path="/stories" element={<Story />} />
         <Route path="/nominate" element={<Nominate />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/dashboard" element={<ProtectedRoute role="user"><UserDashboard /></ProtectedRoute>} />
-        <Route path="/admin" element={<ProtectedRoute role="admin"><AdminDashboard /></ProtectedRoute>} />
+        {/* <Route path="/userdashboard" element={<UserDashboard />} /> */}
+        {/* <Route path="/admindashboard" element={<AdminDashboard />} /> */}
+        {/* <Route path="/dashboard" element={<ProtectedRoute role="user"><UserDashboard /></ProtectedRoute>} />
+        <Route path="/admin" element={<ProtectedRoute role="admin"><AdminDashboard /></ProtectedRoute>} /> */}
 
       </Routes>
       <Footer />

@@ -11,7 +11,7 @@ const WORK = [
         imageLabel: "Still from a film shoot",
         stat: "[N]",
         statLabel: "films and conversations published",
-        title: "Impact TV",
+        title: "Impact originals",
         text: "Documentaries and long conversations with the people doing the work, filmed where it happens.",
         linkText: "Watch",
         to: "/impact-tv",

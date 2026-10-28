@@ -41,7 +41,7 @@ function ImpactTV() {
         <section className="impactTvPage" aria-labelledby="impactTvTitle">
             <div className="impactTvInner">
                 <header className="impactTvHeader">
-                    <h1 id="impactTvTitle" className="impactTvTitle">Impact TV</h1>
+                    <h1 id="impactTvTitle" className="impactTvTitle">Impact Originals</h1>
                     <a className="impactTvAll" href={YOUTUBE_URL} target="_blank" rel="noopener noreferrer">
                         All films on YouTube
                     </a>

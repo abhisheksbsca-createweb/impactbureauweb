@@ -2,7 +2,9 @@
 
 .headerContainer {
     --ink: #0e1b19;
+    // --ink: #130f0c;
     --ink-soft: #132623;
+    // --ink-soft: #130f0c;
     --paper: #f3efe6;
     --paper-muted: #b9c4bf;
     --marigold: #f2b134;
@@ -25,29 +27,33 @@
     font-family: 'Manrope', Arial, sans-serif;
 
     .logo {
+        
         flex: 0 1 auto;
         min-width: 0;
         display: flex;
+       
         font-family: 'Newsreader', Georgia, serif;
         font-size: 2.8rem;
         font-weight: 600;
         letter-spacing: -0.02em;
         text-transform: capitalize;
         // border: 2px solid red;
-        gap: 30px;
-
+        
        
         .headerlogo{
             width: 60px;
             height: 60px;
             border-radius: 5px;
+       
         }
         a {
             display: flex;
             align-items: center;
+            gap: .5vw;
             min-width: 0;
             color: var(--paper);
             text-decoration: none;
+
 
             &:focus-visible {
                 outline: 2px solid var(--paper);

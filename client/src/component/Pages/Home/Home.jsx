@@ -74,7 +74,7 @@ function Home() {
                         <span>Most of the good work in this country is never recorded.</span>
                     </div>
                     <div className="homeParagraphBox homeChildBox">
-                        <span>We find the people quietly changing their communities, document their work, and make sure it is seen and supported.</span>
+                        <span>We discover the people who quietly changing their communities, document their work, and make sure it is seen and supported.</span>
                     </div>
                     <div className="homeButtonBox homeChildBox">
                         <div className="homeBtnChild1">

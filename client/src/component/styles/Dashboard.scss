@@ -1,0 +1,410 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap');
+
+// Used by the user and admin dashboards. Put this file at src/styles/Dashboard.scss
+.dashPage {
+    --ink: #0e1b19;
+    --ink-soft: #132623;
+    --paper: #f3efe6;
+    --paper-muted: #b9c4bf;
+    --marigold: #f2b134;
+    --hairline: rgba(243, 239, 230, 0.14);
+
+    box-sizing: border-box;
+    width: 100%;
+    min-height: calc(100vh - 6.3rem);
+    min-height: calc(100dvh - 6.3rem);
+    padding: clamp(3.6rem, 8vh, 8rem) clamp(2.4rem, 5vw, 9rem);
+    background-color: var(--ink);
+    color: var(--paper);
+    font-family: 'Manrope', Arial, sans-serif;
+
+    .dashInner {
+        max-width: 140rem;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: clamp(3.2rem, 6vh, 5.6rem);
+    }
+
+    // ---------- greeting ----------
+    .dashTop {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 2.4rem;
+    }
+
+    .dashDate {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        margin: 0 0 1.6rem;
+        font-size: 1.4rem;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        color: var(--paper-muted);
+
+        &::before {
+            content: "";
+            flex: none;
+            width: 3.6rem;
+            height: 2px;
+            background: var(--marigold);
+        }
+    }
+
+    .dashTitle {
+        margin: 0;
+        font-family: 'Newsreader', Georgia, serif;
+        font-size: clamp(3.6rem, 5.4vw, 7.2rem);
+        font-weight: 500;
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+    }
+
+    .dashSub {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1.2rem;
+        margin: 1.6rem 0 0;
+        font-size: 1.6rem;
+        color: var(--paper-muted);
+    }
+
+    .dashRole {
+        padding: 0.3rem 1rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--marigold);
+        border: 1.5px solid var(--marigold);
+        border-radius: 999px;
+    }
+
+    .dashLogout {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 1.1rem 2rem;
+        font-family: inherit;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--paper);
+        background: transparent;
+        border: 1.5px solid rgba(243, 239, 230, 0.4);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: border-color 0.2s ease, background-color 0.2s ease;
+
+        svg {
+            width: 1.8rem;
+            height: 1.8rem;
+        }
+
+        &:hover {
+            border-color: var(--paper);
+            background-color: rgba(243, 239, 230, 0.06);
+        }
+
+        &:focus-visible {
+            outline: 3px solid var(--paper);
+            outline-offset: 3px;
+        }
+    }
+
+    .dashSectionTitle {
+        margin: 0 0 2rem;
+        font-family: 'Newsreader', Georgia, serif;
+        font-size: clamp(2.4rem, 2.4vw, 3.2rem);
+        font-weight: 500;
+        letter-spacing: -0.02em;
+    }
+
+    // ---------- user: shortcut cards ----------
+    .dashActions {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: clamp(1.6rem, 2vw, 3rem);
+    }
+
+    .dashAction {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: clamp(2.4rem, 2.4vw, 3.4rem);
+        color: inherit;
+        text-decoration: none;
+        background-color: var(--ink-soft);
+        border: 1px solid var(--hairline);
+        border-radius: 10px;
+        transition: border-color 0.2s ease, transform 0.2s ease;
+
+        &:hover {
+            border-color: var(--marigold);
+            transform: translateY(-3px);
+        }
+
+        &:focus-visible {
+            outline: 3px solid var(--paper);
+            outline-offset: 3px;
+        }
+    }
+
+    .dashActionIcon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 4.8rem;
+        height: 4.8rem;
+        margin-bottom: 1rem;
+        color: var(--marigold);
+        border: 1.5px solid rgba(242, 177, 52, 0.5);
+        border-radius: 50%;
+
+        svg {
+            width: 2.2rem;
+            height: 2.2rem;
+        }
+    }
+
+    .dashActionTitle {
+        font-family: 'Newsreader', Georgia, serif;
+        font-size: 2.6rem;
+        font-weight: 500;
+        letter-spacing: -0.015em;
+    }
+
+    .dashActionText {
+        font-size: 1.5rem;
+        line-height: 1.55;
+        color: var(--paper-muted);
+    }
+
+    // ---------- user: account details ----------
+    .dashAccount {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.6rem 3rem;
+        margin: 0;
+        padding: clamp(2.4rem, 2.4vw, 3.4rem);
+        background-color: var(--ink-soft);
+        border: 1px solid var(--hairline);
+        border-radius: 10px;
+
+        div {
+            min-width: 0;
+        }
+
+        dt {
+            margin-bottom: 0.6rem;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--paper-muted);
+        }
+
+        dd {
+            margin: 0;
+            font-size: 1.7rem;
+            font-weight: 600;
+            overflow-wrap: anywhere;
+        }
+    }
+
+    // ---------- admin: numbers ----------
+    .dashStats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: clamp(1.6rem, 2vw, 3rem);
+    }
+
+    .dashStat {
+        padding: clamp(2.4rem, 2.4vw, 3.4rem);
+        background-color: var(--ink-soft);
+        border: 1px solid var(--hairline);
+        border-radius: 10px;
+
+        > svg {
+            width: 2.4rem;
+            height: 2.4rem;
+            color: var(--paper-muted);
+        }
+    }
+
+    .dashStatNumber {
+        margin: 1.6rem 0 0.4rem;
+        font-family: 'Newsreader', Georgia, serif;
+        font-size: clamp(4.4rem, 5vw, 6.4rem);
+        font-weight: 500;
+        line-height: 1;
+        letter-spacing: -0.03em;
+        color: var(--marigold);
+    }
+
+    .dashStatSmall {
+        font-size: clamp(2.8rem, 3vw, 4rem);
+        line-height: 1.2;
+    }
+
+    .dashStatLabel {
+        margin: 0;
+        font-size: 1.5rem;
+        color: var(--paper-muted);
+    }
+
+    // ---------- admin: tabs and tables ----------
+    .dashTabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .dashTab {
+        padding: 0.9rem 1.8rem;
+        font-family: inherit;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: var(--paper);
+        background: transparent;
+        border: 1.5px solid rgba(243, 239, 230, 0.3);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+
+        &:hover {
+            border-color: var(--paper);
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--paper);
+            outline-offset: 3px;
+        }
+
+        &[aria-pressed="true"] {
+            color: var(--ink);
+            background-color: var(--marigold);
+            border-color: var(--marigold);
+        }
+    }
+
+    .dashTableWrap {
+        overflow: hidden;
+        border: 1px solid var(--hairline);
+        border-radius: 10px;
+        background-color: var(--ink-soft);
+    }
+
+    .dashTable {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+
+        th {
+            padding: 1.4rem 2rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--paper-muted);
+            border-bottom: 1px solid var(--hairline);
+        }
+
+        td {
+            padding: 1.6rem 2rem;
+            font-size: 1.5rem;
+            line-height: 1.5;
+            vertical-align: top;
+            border-bottom: 1px solid rgba(243, 239, 230, 0.08);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover td {
+            background-color: rgba(243, 239, 230, 0.04);
+        }
+    }
+
+    .dashEmpty {
+        margin: 0;
+        padding: 3rem 0;
+        font-size: 1.7rem;
+        color: var(--paper-muted);
+    }
+
+    .dashEmptyError {
+        color: #ffb4a8;
+    }
+}
+
+@media (max-width: 1000px) {
+    .dashPage {
+        .dashActions,
+        .dashStats {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .dashAccount {
+            grid-template-columns: minmax(0, 1fr);
+        }
+    }
+}
+
+// phone: each table row becomes a small card, so nothing scrolls sideways
+@media (max-width: 700px) {
+    .dashPage {
+        .dashTop {
+            align-items: flex-start;
+        }
+
+        .dashTable {
+            thead {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+            }
+
+            tr {
+                display: block;
+                padding: 1.2rem 0;
+                border-bottom: 1px solid var(--hairline);
+            }
+
+            tbody tr:last-child {
+                border-bottom: none;
+            }
+
+            td {
+                display: flex;
+                gap: 1.4rem;
+                padding: 0.7rem 1.6rem;
+                border-bottom: none;
+
+                &::before {
+                    content: attr(data-label);
+                    flex: 0 0 10rem;
+                    font-size: 1.3rem;
+                    font-weight: 600;
+                    color: var(--paper-muted);
+                }
+            }
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dashPage {
+        .dashAction,
+        .dashLogout,
+        .dashTab {
+            transition: none;
+        }
+
+        .dashAction:hover {
+            transform: none;
+        }
+    }
+}

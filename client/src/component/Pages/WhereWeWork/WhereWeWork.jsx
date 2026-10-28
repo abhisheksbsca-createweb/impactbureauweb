@@ -16,7 +16,7 @@ function WhereWeWork() {
                 <div className="whereWeWorkText">
                     <p className="whereWeWorkLabel">Where we work</p>
                     <h2 id="whereWeWorkTitle" className="whereWeWorkTitle">
-                        Starting in eastern Uttar Pradesh. Built to go further.
+                        Amplifying the stories transforming India, district by district.
                     </h2>
                     <p className="whereWeWorkBody">
                         We begin where we know the ground, village by village, and add a district only when we
