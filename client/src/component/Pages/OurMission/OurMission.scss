@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap');
 
 .missionPageContainer {
     --ink: #0e1b19;
@@ -217,5 +217,278 @@
         .missionPageRightSideChild4 a {
             transition: none;
         }
+    }
+} */
+
+
+
+
+/*
+  OurMission.css
+  Put this file next to OurMission.jsx, and delete the old OurMission.scss.
+
+  Plain CSS. Colors come from the :root block in variables.css,
+  so to change a color, change it there. 1rem = 10px in this project.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+
+/* ---------- 1. THE WHOLE PAGE ---------- */
+/* 6.3rem is the height of the header, so the page fills the rest of the screen */
+.ourMissionPage {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: calc(100vh - 6.3rem);
+    display: flex;
+    align-items: center;
+    padding: 6rem 9rem;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: 'Manrope', Arial, sans-serif;
+}
+
+
+/* ---------- 2. THE ONE BIG BOX (left side + right side) ---------- */
+.ourMissionBox {
+    display: flex;
+    width: 100%;
+    max-width: 170rem;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+}
+
+
+/* ---------- 3. LEFT SIDE: PHOTO ---------- */
+.ourMissionLeft {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 40%;
+    border-right: 1px solid var(--color-border);
+}
+
+/* the photo area grows to fill the whole left side */
+.ourMissionPhoto {
+    position: relative;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    min-height: 40rem;
+    background-color: var(--color-bg);
+}
+
+/* the photo covers the whole area (it is cropped a little if the shape is different) */
+.ourMissionPhoto img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* text shown until you add a real photo */
+.ourMissionPhotoLabel {
+    font-size: 1.5rem;
+    color: var(--color-text-soft);
+}
+
+/* name and role under the photo */
+.ourMissionCaption {
+    padding: 2.4rem 3rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.ourMissionName {
+    margin: 0 0 0.4rem 0;
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 2.6rem;
+    font-weight: 500;
+}
+
+.ourMissionRole {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--color-text-soft);
+}
+
+
+/* ---------- 4. RIGHT SIDE: MISSION MESSAGE ---------- */
+.ourMissionRight {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 0;
+    padding: 6rem;
+}
+
+/* small "Our mission" word */
+.ourMissionLabel {
+    margin: 0 0 2rem 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-accent);
+}
+
+/* the big sentence */
+.ourMissionStatement {
+    margin: 0 0 3rem 0;
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 4.4rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+/* the two highlighted parts of the sentence */
+.ourMissionStatement span {
+    color: var(--color-accent);
+    font-style: italic;
+}
+
+/* the paragraph under it */
+.ourMissionText {
+    margin: 0 0 3rem 0;
+    max-width: 70rem;
+    font-size: 1.9rem;
+    line-height: 1.8;
+    color: var(--color-text-soft);
+}
+
+/* "How we work" and "Read the letter" links */
+.ourMissionLink {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.ourMissionLink:hover {
+    text-decoration: underline;
+}
+
+.ourMissionLink:focus-visible {
+    outline: 2px solid var(--color-text);
+    outline-offset: 4px;
+}
+
+
+/* ---------- 5. FOUNDER'S LETTER (inside the right side) ---------- */
+.ourMissionLetter {
+    width: 100%;
+    margin-top: 5rem;
+    padding-top: 4rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.ourMissionLetterLabel {
+    margin: 0 0 1.6rem 0;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--color-text-soft);
+}
+
+/* the founder's sentence, with a line on its left */
+.ourMissionQuote {
+    margin: 0 0 2.4rem 0;
+    max-width: 70rem;
+    padding-left: 2.4rem;
+    border-left: 3px solid var(--color-accent);
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 2.6rem;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+
+/* ---------- 6. SMALLER SCREENS ---------- */
+
+/* laptop and small desktop */
+@media (max-width: 1100px) {
+    .ourMissionPage {
+        padding: 4rem;
+    }
+
+    .ourMissionLeft {
+        flex: 0 0 36%;
+    }
+
+    .ourMissionRight {
+        padding: 4rem;
+    }
+
+    .ourMissionStatement {
+        font-size: 3.6rem;
+    }
+}
+
+/* tablet and phone: photo on top, message below */
+@media (max-width: 900px) {
+    .ourMissionPage {
+        padding: 3rem 2.4rem;
+    }
+
+    .ourMissionBox {
+        flex-direction: column;
+    }
+
+    .ourMissionLeft {
+        flex: none;
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .ourMissionPhoto {
+        flex: none;
+        min-height: 32rem;
+    }
+
+    .ourMissionRight {
+        padding: 3.4rem 2.4rem;
+    }
+
+    .ourMissionStatement {
+        font-size: 3rem;
+    }
+
+    .ourMissionText {
+        font-size: 1.8rem;
+    }
+
+    .ourMissionQuote {
+        font-size: 2.3rem;
+    }
+}
+
+/* small phone */
+@media (max-width: 480px) {
+    .ourMissionPage {
+        padding: 2rem 1.6rem;
+    }
+
+    .ourMissionPhoto {
+        min-height: 28rem;
+    }
+
+    .ourMissionCaption {
+        padding: 2rem;
+    }
+
+    .ourMissionRight {
+        padding: 3rem 2rem;
+    }
+
+    .ourMissionStatement {
+        font-size: 2.6rem;
+    }
+
+    .ourMissionQuote {
+        padding-left: 2rem;
+        font-size: 2.1rem;
     }
 }
