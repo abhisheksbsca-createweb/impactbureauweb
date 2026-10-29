@@ -19,7 +19,7 @@ const VIDEOS = [
     {
         id: 1,
         type: "Documentary",
-        title: "[The One Who Teaches | Short Film on People Behind Every Lesson | Shivbrat Singh Children Academy]",
+        title: "The One Who Teaches | Short Film on People Behind Every Lesson | Shivbrat Singh Children Academy",
         summary: "[One line on who it follows.]",
         duration: "[mm:ss]",
         image: teacherthubnail,

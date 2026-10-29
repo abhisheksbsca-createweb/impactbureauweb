@@ -1,62 +1,110 @@
+import { Link } from "react-router-dom";
+import verifyimg from "../../../../assets/village.jpeg"
+import cardimg from "../../../../assets/comingsoon.jpeg"
+import { FaRegPlayCircle } from "react-icons/fa";
 import "./OurStory.scss";
+
+
+
+const middleSectionSteps = [
+    {
+        image: cardimg,
+        step: "01",
+        heading: "Where it began — Kalan, Sultanpur",
+        content:
+            "In a small village in Sultanpur, Shri Vishwanath Shiksha Samiti began its journey over five decades ago, working to bring modern education to the region.",
+        to: "###",
+        name: "Rooted in Kalan"
+
+    },
+    {
+        image: cardimg,
+        step: "02",
+        heading: "The foundation — Education",
+        content:
+            "Today, its institutions serve more than 30,000 students, carrying forward a legacy of learning and opportunity.",
+        to: "###",
+        name: "change starts with opportunity"
+    },
+    {
+        image: cardimg,
+        step: "03",
+        heading: "The realisation — Change beyond education",
+        content:
+            "We realised that across the region, many others were creating change — through health, livelihoods, the environment, governance and community service.",
+        to: "###",
+        name: "every community has a changeemaker"
+    },
+    {
+        image: cardimg,
+        step: "04",
+        heading: "The next chapter — Impact Originals",
+        content:
+            "So we decided to go beyond our own institutions and recognise the people bringing positive change, whatever the medium. That became Impact Bureau.",
+        to: "###",
+        name: "stories that deserve to be seen"
+    },
+];
+
+
+const verifyBottomSection = [
+    {
+        value: "50+",
+        content: "years of educational work",
+    },
+    {
+        value: "35,000+",
+        content: "students served by the institutions",
+    },
+    {
+        value: "01",
+        content: "A border mission through impact Bureau",
+    },
+    {
+        value: <FaRegPlayCircle />,
+        content: "Real people, Real stories, Meaningful change",
+    }
+]
 
 function OurStory() {
     return (
-        <section className="ourStoryPage">
-            <div className="ourStoryInner">
-
-                {/* ===== Title and opening line ===== */}
-                <div className="ourStoryTop">
-                    <p className="ourStoryLabel">Impact Bureau</p>
-                    <h1 className="ourStoryTitle">Our story</h1>
-                    <p className="ourStoryLead">
-                        It began in Kalan, a small village in Sultanpur, eastern Uttar Pradesh.
-                    </p>
-                </div>
-
-                <div className="ourStoryLayout">
-
-                    {/* ===== Left side: two numbers from the story ===== */}
-                    <div className="ourStoryFacts">
-                        <div className="ourStoryFact">
-                            <p className="ourStoryFactNumber">50+</p>
-                            <p className="ourStoryFactText">years of Shri Vishwanath Shiksha Samiti bringing education to the region</p>
-                        </div>
-                        <div className="ourStoryFact">
-                            <p className="ourStoryFactNumber">35,000+</p>
-                            <p className="ourStoryFactText">students served by its institutions today</p>
-                        </div>
-                    </div>
-
-                    {/* ===== Right side: the story ===== */}
-                    <div className="ourStoryText">
-                        <p className="ourStoryParagraph">
-                            For over five decades, Shri Vishwanath Shiksha Samiti has worked there to bring modern
-                            education to the region. Today, its institutions serve more than 35,000 students.
-                        </p>
-
-                        <p className="ourStoryQuote">
-                            That work taught us something: education is only one way people change lives.
-                        </p>
-
-                        <p className="ourStoryParagraph">
-                            Across the region, others were doing the same through health, livelihoods, the
-                            environment, governance and community service. Most of that work went unseen.
-                        </p>
-
-                        <p className="ourStoryParagraph">
-                            So we decided to go beyond our own institutions and recognise the people bringing
-                            positive change, whatever the medium.
-                        </p>
-
-                        <p className="ourStoryClosing">
-                            That became Impact Bureau: a voice for positive change, and a platform that brings
-                            attention to the issues affecting millions of lives.
-                        </p>
-                    </div>
-
-                </div>
+        <section className="verifyPage">
+            <div className="verifyTopSection">
+                <img src={verifyimg} alt="image not found" />
             </div>
+            <div className="verifyMiddleSection">
+                <div className="verifyStepCard">
+                    {middleSectionSteps.map((data) => (
+
+                        <div className="verifyListCard">
+                            <div className="verifyImg">
+                                <img className="verifyImg" src={data.image} alt="" />
+                            </div>
+                            <div className="verifyContent">
+                                <div className="verifyLeftSide">
+                                    <p className="verifynumber">{data.step}</p>
+                                </div>
+                                <div className="verifyRightSide">
+                                    <span className="verifyHeading">{data.heading}</span>
+                                    <p className="verifyPara">{data.content}</p>
+                                    <Link className="btnText" to="/">{data.name}</Link>
+                                </div>
+
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                {/* <div className="verifyValueCard"></div> */}
+            </div>
+            <div className="verifyBottomSection">
+                {verifyBottomSection.map((bottomdata) => (
+                    <div className="bottomCard">
+                        <p>{bottomdata.value}</p>
+                        <p>{bottomdata.content}</p>
+                    </div>
+                ))}
+            </div>
+
         </section>
     );
 }

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 import "./Footer.scss";
 
 // Links with `to` are pages inside the site; links with `href` open in a new tab.
@@ -8,24 +9,24 @@ const COLUMNS = [
         heading: "Our work",
         links: [
             { label: "Impact Originals", to: "/impact-tv" },
-            { label: "Impact Magazine", to: "/stories" },
-            { label: "Creators Impact Summit", to: "/summit" },
+            { label: "Impact Magazine", to: "/ourwork" },
+            { label: "Creators Impact Summit", to: "###" },
         ],
     },
     {
         heading: "About",
         links: [
             { label: "Mission", to: "/ourmission" },
-            { label: "How we verify", to: "/ourmission#how-we-verify" },
-            { label: "Team", to: "/ourmission#team" },
+            { label: "How we verify", to: "more-about/howweverify" },
+            { label: "Team", to: "###" },
         ],
     },
     {
         heading: "Get involved",
         links: [
             { label: "Nominate", to: "/nominate" },
-            { label: "Partner with us", to: "/partner" },
-            { label: "Contact", to: "/contact" },
+            { label: "Partner with us", to: "###" },
+            { label: "Contact", to: "###" },
         ],
     },
     {
@@ -51,6 +52,7 @@ function FooterLink({ link }) {
     }
     return (
         <a href={link.href} target="_blank" rel="noopener noreferrer">
+            {link.icon}
             {link.label}
         </a>
     );

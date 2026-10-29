@@ -25,7 +25,7 @@ const MENU = [
         label: "Our work",
         items: [
             { label: "Overview", desc: "Three ways we put change on the record", to: "/ourwork" },
-            { label: "Impact TV", desc: "Films and long conversations", to: "/impact-tv" },
+            { label: "Impact Originals", desc: "Films and long conversations", to: "/impact-tv" },
             { label: "Stories", desc: "Stories from the field", to: "/stories" },
         ],
     }

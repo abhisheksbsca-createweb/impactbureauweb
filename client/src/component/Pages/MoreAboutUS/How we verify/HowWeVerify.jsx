@@ -1,7 +1,4 @@
 import { Link } from "react-router-dom";
-import verifyimg from "../../../../assets/village.jpeg"
-import cardimg from "../../../../assets/comingsoon.jpeg"
-import { FaRegPlayCircle } from "react-icons/fa";
 import "./HowWeVerify.scss"
 
 // What we look for. To add or change one, edit a line here.
@@ -23,108 +20,84 @@ const STEPS = [
 
 
 
-const middleSectionSteps = [
-    {
-        image: cardimg,
-        step: "01",
-        heading: "Where it began — Kalan, Sultanpur",
-        content:
-            "In a small village in Sultanpur, Shri Vishwanath Shiksha Samiti began its journey over five decades ago, working to bring modern education to the region.",
-        to: "###",
-        name: "Rooted in Kalan"
-
-    },
-    {
-        image: cardimg,
-        step: "02",
-        heading: "The foundation — Education",
-        content:
-            "Today, its institutions serve more than 30,000 students, carrying forward a legacy of learning and opportunity.",
-        to: "###",
-        name: "change starts with opportunity"
-    },
-    {
-        image: cardimg,
-        step: "03",
-        heading: "The realisation — Change beyond education",
-        content:
-            "We realised that across the region, many others were creating change — through health, livelihoods, the environment, governance and community service.",
-        to: "###",
-        name: "every community has a changeemaker"
-    },
-    {
-        image: cardimg,
-        step: "04",
-        heading: "The next chapter — Impact Originals",
-        content:
-            "So we decided to go beyond our own institutions and recognise the people bringing positive change, whatever the medium. That became Impact Bureau.",
-        to: "###",
-        name: "stories that deserve to be seen"
-    },
-];
-
-
-const verifyBottomSection = [
-    {
-        value: "50+",
-        content: "years of educational work",
-    },
-    {
-        value: "35,000+",
-        content: "students served by the institutions",
-    },
-    {
-        value: "01",
-        content: "A border mission through impact Bureau",
-    },
-    {
-        value: <FaRegPlayCircle />,
-        content: "Real people, Real stories, Meaningful change",
-    }
-]
-
-
 function HowWeVerify() {
     return (
-        
         <section className="verifyPage">
-            <div className="verifyTopSection">
-                <img src={verifyimg} alt="image not found" />
-            </div>
-            <div className="verifyMiddleSection">
-                <div className="verifyStepCard">
-                    {middleSectionSteps.map((data) => (
+            <div className="verifyInner">
 
-                        <div className="verifyListCard">
-                            <div className="verifyImg">
-                                <img className="verifyImg" src={data.image} alt="" />
-                            </div>
-                            <div className="verifyContent">
-                                <div className="verifyLeftSide">
-                                    <p className="verifynumber">{data.step}</p>
-                                </div>
-                                <div className="verifyRightSide">
-                                    <span className="verifyHeading">{data.heading}</span>
-                                    <p className="verifyPara">{data.content}</p>
-                                    <Link className="btnText" to="/">{data.name}</Link>
-                                </div>
-
-                            </div>
-                        </div>
-                    ))}
+                {/* ===== Title and first line ===== */}
+                <div className="verifyTop">
+                    <p className="verifyLabel">Impact Bureau</p>
+                    <h1 className="verifyTitle">How we verify</h1>
+                    <p className="verifyLead">
+                        Every story is checked on site and with the community before it is published or awarded.
+                    </p>
                 </div>
-                {/* <div className="verifyValueCard"></div> */}
-            </div>
-            <div className="verifyBottomSection">
-                {verifyBottomSection.map((bottomdata) => (
-                    <div className="bottomCard">
-                        <p>{bottomdata.value}</p>
-                        <p>{bottomdata.content}</p>
-                    </div>
-                ))}
-            </div>
 
+                {/* ===== You don't need followers ===== */}
+                <div className="verifySection">
+                    <h2 className="verifySectionTitle">You don’t need followers. You need results.</h2>
+                    <div className="verifySectionBody">
+                        <p className="verifyText">
+                            You don’t need a large following, a social media presence, or any media coverage to be
+                            featured or nominated. We don’t measure reach. We measure impact: what has changed because
+                            of your work, and how many lives it has touched.
+                        </p>
+                    </div>
+                </div>
+
+                {/* ===== What we look for ===== */}
+                <div className="verifySection">
+                    <h2 className="verifySectionTitle">What we look for</h2>
+                    <div className="verifySectionBody">
+                        <div className="verifyCards">
+                            {LOOK_FOR.map((item) => (
+                                <div className="verifyCard" key={item.title}>
+                                    <h3 className="verifyCardTitle">{item.title}</h3>
+                                    <p className="verifyCardText">{item.text}</p>
+                                </div>
+                            ))}
+                        </div>
+                        <p className="verifyNote">
+                            This applies equally to individuals and organisations, in villages, towns and cities.
+                        </p>
+                    </div>
+                </div>
+
+                {/* ===== How the process works ===== */}
+                <div className="verifySection">
+                    <h2 className="verifySectionTitle">How the process works</h2>
+                    <div className="verifySectionBody">
+                        <ol className="verifySteps">
+                            {STEPS.map((step, index) => (
+                                <li className="verifyStep" key={step.title}>
+                                    <span className="verifyStepNumber">{index + 1}</span>
+                                    <div>
+                                        <h3 className="verifyStepTitle">{step.title}</h3>
+                                        <p className="verifyStepText">{step.text}</p>
+                                    </div>
+                                </li>
+                            ))}
+                        </ol>
+                    </div>
+                </div>
+
+                {/* ===== Why we do it this way + button to the nominate page ===== */}
+                <div className="verifySection">
+                    <h2 className="verifySectionTitle">Why we do it this way</h2>
+                    <div className="verifySectionBody">
+                        <p className="verifyText">
+                            Anyone can claim impact online. We’d rather tell fewer stories that are true than many that
+                            aren’t. Verification protects the people we feature, and it gives everyone who reads,
+                            watches or supports our work a reason to trust it.
+                        </p>
+                        <Link className="verifyButton" to="/nominate">Nominate someone</Link>
+                    </div>
+                </div>
+
+            </div>
         </section>
+        
     );
 }
 

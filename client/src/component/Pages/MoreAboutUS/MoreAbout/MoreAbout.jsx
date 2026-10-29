@@ -42,7 +42,7 @@ function MoreAbout() {
                             <div className="moreAboutMedia">
                                 {item.image && <img src={item.image} alt="" />}
                             </div>
-                            <h3 className="moreAboutCardTitle">{item.title}</h3>
+                            {/* <h3 className="moreAboutCardTitle">{item.title}</h3> */}
                             <p className="moreAboutText">{item.text}</p>
                             <Link
                                 className="moreAboutLink"

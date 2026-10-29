@@ -9,246 +9,158 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:wght@400;500;600&display=swap');
 
 
-/* ---------- 1. THE WHOLE PAGE ---------- */
-.ourStoryPage {
-    box-sizing: border-box;
+.verifyPage {
+
+    --ink: #0e1b19;
+    --ink-soft: #132623;
+    --paper: #f3efe6;
+    --paper-muted: #b9c4bf;
+    --marigold: #f2b134;
+    --hairline: rgba(243, 239, 230, 0.14);
+
     width: 100%;
-    padding: 8rem 9rem;
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    font-family: 'Manrope', Arial, sans-serif;
-}
 
-/* keeps very wide screens from stretching the text too far */
-.ourStoryInner {
-    max-width: 140rem;
-    margin: 0 auto;
-}
-
-
-/* ---------- 2. TITLE AT THE TOP ---------- */
-.ourStoryTop {
-    padding-bottom: 6rem;
-}
-
-.ourStoryLabel {
-    margin: 0 0 2rem 0;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--color-accent);
-}
-
-.ourStoryTitle {
-    margin: 0 0 3rem 0;
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 7.2rem;
-    font-weight: 500;
-    line-height: 1.05;
-}
-
-/* the first line of the story, written large */
-.ourStoryLead {
-    margin: 0;
-    max-width: 80rem;
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 3.2rem;
-    line-height: 1.3;
-    color: var(--color-text);
-}
-
-
-/* ---------- 3. TWO COLUMNS: numbers on the left, story on the right ---------- */
-.ourStoryLayout {
+   
     display: flex;
-    gap: 8rem;
-    padding-top: 6rem;
-    border-top: 1px solid var(--color-border);
-}
-
-
-/* ---------- 4. LEFT SIDE: THE NUMBERS ---------- */
-.ourStoryFacts {
-    flex: 0 0 32rem;
-}
-
-.ourStoryFact {
-    margin-bottom: 3rem;
-    padding-bottom: 3rem;
-    border-bottom: 1px solid var(--color-border);
-}
-
-.ourStoryFact:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
-}
-
-/* the big number */
-.ourStoryFactNumber {
-    margin: 0 0 1rem 0;
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 6.4rem;
-    font-weight: 500;
-    line-height: 1;
-    color: var(--color-accent);
-}
-
-.ourStoryFactText {
-    margin: 0;
-    font-size: 1.6rem;
-    line-height: 1.5;
-    color: var(--color-text-soft);
-}
-
-
-/* ---------- 5. RIGHT SIDE: THE STORY ---------- */
-.ourStoryText {
-    flex: 1;
-    min-width: 0;
-    max-width: 76rem;
-}
-
-/* normal paragraph */
-.ourStoryParagraph {
-    margin: 0 0 3rem 0;
-    font-size: 1.9rem;
-    line-height: 1.8;
-    color: var(--color-text-soft);
-}
-
-/* the sentence that turns the story, with a line on its left */
-.ourStoryQuote {
-    margin: 4rem 0;
-    padding-left: 2.8rem;
-    border-left: 3px solid var(--color-accent);
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 3.4rem;
-    line-height: 1.3;
-    color: var(--color-text);
-}
-
-/* the last statement */
-.ourStoryClosing {
-    margin: 5rem 0 0 0;
-    padding-top: 4rem;
-    border-top: 1px solid var(--color-border);
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 3.4rem;
-    line-height: 1.3;
-    color: var(--color-text);
-}
-
-
-/* ---------- 6. SMALLER SCREENS ---------- */
-
-/* laptop and small desktop */
-@media (max-width: 1100px) {
-    .ourStoryPage {
-        padding: 6rem 4rem;
+    flex-direction: column;
+    padding: 0;
+    
+    
+    .verifyTopSection,
+    .verifyMiddleSection {
+        width: 100%;
+        
+        
     }
+    
+    .verifyTopSection {
+    height: 50rem;
+    display: flex;
 
-    .ourStoryTitle {
-        font-size: 6rem;
-    }
+    img {
+        width: 100%;
+        object-fit:fill;
 
-    .ourStoryLead {
-        font-size: 2.8rem;
-    }
+        filter: brightness(80%) contrast(105%);
 
-    .ourStoryLayout {
-        gap: 5rem;
-    }
-
-    .ourStoryFacts {
-        flex: 0 0 26rem;
-    }
-
-    .ourStoryFactNumber {
-        font-size: 5.2rem;
-    }
-
-    .ourStoryQuote,
-    .ourStoryClosing {
-        font-size: 3rem;
     }
 }
 
-/* tablet and phone: the two numbers go side by side on top, the story below */
-@media (max-width: 900px) {
-    .ourStoryPage {
-        padding: 4rem 2.4rem;
-    }
 
-    .ourStoryTop {
-        padding-bottom: 4rem;
-    }
+.verifyMiddleSection {
+    display: grid;
+    background-color: var(--ink-soft);
+    padding: 0 3rem;
 
-    .ourStoryTitle {
-        font-size: 4.6rem;
-    }
 
-    .ourStoryLead {
-        font-size: 2.4rem;
-    }
 
-    .ourStoryLayout {
-        flex-direction: column;
-        gap: 4rem;
-        padding-top: 4rem;
-    }
-
-    .ourStoryFacts {
-        flex: none;
+    .verifyStepCard {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2.4rem;
-    }
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 2rem;
+       
 
-    .ourStoryFact,
-    .ourStoryFact:last-child {
-        margin-bottom: 0;
-        padding-bottom: 0;
-        border-bottom: none;
-    }
 
-    .ourStoryParagraph {
-        font-size: 1.8rem;
-    }
 
-    .ourStoryQuote,
-    .ourStoryClosing {
-        font-size: 2.6rem;
+        .verifyListCard {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            row-gap: 2rem;
+
+            .verifyImg {
+                width: 100%;
+                height: 100%;
+            }
+
+           
+
+            .verifyContent {
+                display: flex;
+                gap: 1.5rem;
+               
+                padding-right: 1rem;
+
+
+                .verifyLeftSide {
+                    .verifynumber {
+                        font-size: 2.5rem;
+                        font-weight: 700;
+                        color: var(--marigold);
+                    }
+                }
+
+
+                .verifyRightSide {
+                    padding-top: 1rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+
+                    .verifyHeading {
+                        color: var(--paper);
+                        font-size: 2.5rem;
+                        font-weight: 600;
+                        font-family: 'Newsreader', Georgia, serif;
+                    }
+
+                    .verifyPara {
+
+                        font-size: 2rem;
+                        color: var(--paper-muted);
+                        margin: 1rem 0rem;
+                        text-align: justify;
+                    }
+
+                    .btnText {
+                        text-decoration: none;
+                        color: var(--marigold);
+                        font-size: 1.8rem;
+                        font-weight: 500;
+                        text-transform: lowercase;
+                        padding: 1rem;
+                    }
+
+                    .btnText::first-letter {
+                        text-transform: uppercase;
+                    }
+
+                }
+
+            }
+        }
     }
 }
 
-/* small phone */
-@media (max-width: 480px) {
-    .ourStoryPage {
-        padding: 3rem 1.6rem;
-    }
+.verifyBottomSection{
+    width: 100%;
+    // border: 2px solid lime;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    background-color: var(--ink-soft);
 
-    .ourStoryTitle {
-        font-size: 3.8rem;
-    }
+    .bottomCard{
+        // border: 2px solid red;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        border-top: 1px solid var(--paper-muted);
+        margin: 3rem 0rem;
+        padding-top: 2rem;
 
-    .ourStoryLead {
-        font-size: 2.2rem;
-    }
 
-    .ourStoryFactNumber {
-        font-size: 4rem;
-    }
+        :nth-child(1){
+            font-size: 5rem;
+            color: var(--marigold);
+        }
 
-    .ourStoryFactText {
-        font-size: 1.4rem;
+        :nth-child(2){
+            font-size: 2rem;
+            color: var(--paper-muted);
+        }
     }
+}
 
-    .ourStoryQuote {
-        padding-left: 2rem;
-        font-size: 2.3rem;
-    }
-
-    .ourStoryClosing {
-        font-size: 2.3rem;
-    }
 }

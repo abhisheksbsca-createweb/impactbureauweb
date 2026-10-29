@@ -80,7 +80,7 @@ function OurMission() {
 
                         <h1 className="ourMissionStatement">
                             A society where <span>every act of real change</span> is recorded, recognised, and given
-                            the support to <span>grow beyond one village.</span>
+                            the support to <span>grow beyond where it began. .</span>
                         </h1>
 
                         <p className="ourMissionText">
