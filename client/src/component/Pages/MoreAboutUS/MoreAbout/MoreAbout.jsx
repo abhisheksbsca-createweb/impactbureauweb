@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 import "./MoreAbout.scss";
+import ourstory from "../../../../assets/ourstory.jpeg";
+import howweverify from "../../../../assets/howweverify.jpeg";
+import comingsoon from "../../../../assets/comingsoon.jpeg";
 
 // Replace `image: null` with an imported image once you have the photos.
 // The `to` values point at sections of the mission page; change them if these get their own pages.
@@ -9,21 +12,21 @@ const ITEMS = [
         title: "How we verify",
         text: "Every story is checked on site and with the community before it is published or awarded.",
         to: "/more-about/howweverify",
-        image: null,
+        image: howweverify,
     },
     {
         id: "reach",
         title: "Who Belongs here",
         text: "Follower counts qualify no one. We look at what changed on the ground, and for whom.",
         to: "/more-about/whobelongs",
-        image: null,
+        image: comingsoon,
     },
     {
         id: "story",
         title: "Our story",
         text: "How a summit for 250 creators became a permanent record of people changing their communities.",
         to: "/more-about/ourstory",
-        image: null,
+        image: ourstory,
     },
 ];
 

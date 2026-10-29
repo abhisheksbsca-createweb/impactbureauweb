@@ -7,7 +7,7 @@ const COLUMNS = [
     {
         heading: "Our work",
         links: [
-            { label: "Impact TV", to: "/impact-tv" },
+            { label: "Impact Originals", to: "/impact-tv" },
             { label: "Impact Magazine", to: "/stories" },
             { label: "Creators Impact Summit", to: "/summit" },
         ],

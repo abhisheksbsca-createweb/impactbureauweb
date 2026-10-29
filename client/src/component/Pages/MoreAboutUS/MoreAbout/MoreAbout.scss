@@ -55,12 +55,13 @@
         border-radius: 6px;
         background-color: var(--ink);
         background-image: linear-gradient(135deg, rgba(243, 239, 230, 0.06), transparent 60%);
-
+     
+        
         img {
             display: block;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            // object-fit: cover;
         }
     }
 

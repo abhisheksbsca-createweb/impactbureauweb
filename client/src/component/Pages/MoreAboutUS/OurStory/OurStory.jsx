@@ -32,7 +32,7 @@ function OurStory() {
                     <div className="ourStoryText">
                         <p className="ourStoryParagraph">
                             For over five decades, Shri Vishwanath Shiksha Samiti has worked there to bring modern
-                            education to the region. Today, its institutions serve more than 30,000 students.
+                            education to the region. Today, its institutions serve more than 35,000 students.
                         </p>
 
                         <p className="ourStoryQuote">
