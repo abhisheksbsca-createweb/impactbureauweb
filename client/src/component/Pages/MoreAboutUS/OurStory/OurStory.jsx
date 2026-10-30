@@ -5,7 +5,6 @@ import { FaRegPlayCircle } from "react-icons/fa";
 import "./OurStory.scss";
 
 
-
 const middleSectionSteps = [
     {
         image: cardimg,
@@ -68,39 +67,39 @@ const verifyBottomSection = [
 
 function OurStory() {
     return (
-        <section className="verifyPage">
-            <div className="verifyTopSection">
-                <img src={verifyimg} alt="image not found" />
+        <section className="ourStoryPage">
+
+            {/* ===== 1. Banner picture at the top ===== */}
+            <div className="ourStoryBanner">
+                <img src={verifyimg} alt="A village in Sultanpur" />
             </div>
-            <div className="verifyMiddleSection">
-                <div className="verifyStepCard">
+
+            {/* ===== 2. The four story cards ===== */}
+            <div className="ourStoryMiddle">
+                <div className="ourStoryGrid">
                     {middleSectionSteps.map((data) => (
+                        <div className="ourStoryCard" key={data.step}>
+                            <img className="ourStoryCardPhoto" src={data.image} alt="" />
 
-                        <div className="verifyListCard">
-                            <div className="verifyImg">
-                                <img className="verifyImg" src={data.image} alt="" />
-                            </div>
-                            <div className="verifyContent">
-                                <div className="verifyLeftSide">
-                                    <p className="verifynumber">{data.step}</p>
+                            <div className="ourStoryCardBody">
+                                <p className="ourStoryStep">{data.step}</p>
+                                <div className="ourStoryCardText">
+                                    <h3 className="ourStoryCardHeading">{data.heading}</h3>
+                                    <p className="ourStoryCardPara">{data.content}</p>
+                                    <Link className="ourStoryCardLink" to="/">{data.name}</Link>
                                 </div>
-                                <div className="verifyRightSide">
-                                    <span className="verifyHeading">{data.heading}</span>
-                                    <p className="verifyPara">{data.content}</p>
-                                    <Link className="btnText" to="/">{data.name}</Link>
-                                </div>
-
                             </div>
                         </div>
                     ))}
                 </div>
-                {/* <div className="verifyValueCard"></div> */}
             </div>
-            <div className="verifyBottomSection">
+
+            {/* ===== 3. Numbers at the bottom ===== */}
+            <div className="ourStoryNumbers">
                 {verifyBottomSection.map((bottomdata) => (
-                    <div className="bottomCard">
-                        <p>{bottomdata.value}</p>
-                        <p>{bottomdata.content}</p>
+                    <div className="ourStoryNumber" key={bottomdata.content}>
+                        <p className="ourStoryNumberValue">{bottomdata.value}</p>
+                        <p className="ourStoryNumberLabel">{bottomdata.content}</p>
                     </div>
                 ))}
             </div>

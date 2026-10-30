@@ -1,166 +1,265 @@
 /*
-  OurStory.css
-  Put this file next to OurStory.jsx.
-
-  Plain CSS. Colors come from the :root block in variables.css,
+  OurStory.scss
+  Colors come from the :root block in variables.css (--color-...),
   so to change a color, change it there. 1rem = 10px in this project.
+
+  Screen sizes:
+    big screen ........ 4 cards in a row
+    1200px and below .. 2 cards in a row
+    900px and below ... smaller spacing
+    600px and below ... 1 card in a row (phones)
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:wght@400;500;600&display=swap');
 
 
-.verifyPage {
-
-    --ink: #0e1b19;
-    --ink-soft: #132623;
-    --paper: #f3efe6;
-    --paper-muted: #b9c4bf;
-    --marigold: #f2b134;
-    --hairline: rgba(243, 239, 230, 0.14);
-
-    width: 100%;
-
-   
+.ourStoryPage {
     display: flex;
     flex-direction: column;
-    padding: 0;
-    
-    
-    .verifyTopSection,
-    .verifyMiddleSection {
+    width: 100%;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: 'Manrope', Arial, sans-serif;
+
+
+    /* ---------- 1. BANNER PICTURE ---------- */
+    .ourStoryBanner {
         width: 100%;
+        height: 50rem;
+        overflow: hidden;
         
-        
-    }
-    
-    .verifyTopSection {
-    height: 50rem;
-    display: flex;
 
-    img {
-        width: 100%;
-        object-fit:fill;
-
-        filter: brightness(80%) contrast(105%);
-
-    }
-}
-
-
-.verifyMiddleSection {
-    display: grid;
-    background-color: var(--ink-soft);
-    padding: 0 3rem;
-
-
-
-    .verifyStepCard {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        column-gap: 2rem;
-       
-
-
-
-        .verifyListCard {
-            display: grid;
-            grid-template-rows: 1fr 1fr;
-            row-gap: 2rem;
-
-            .verifyImg {
-                width: 100%;
-                height: 100%;
-            }
-
-           
-
-            .verifyContent {
-                display: flex;
-                gap: 1.5rem;
-               
-                padding-right: 1rem;
-
-
-                .verifyLeftSide {
-                    .verifynumber {
-                        font-size: 2.5rem;
-                        font-weight: 700;
-                        color: var(--marigold);
-                    }
-                }
-
-
-                .verifyRightSide {
-                    padding-top: 1rem;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-around;
-
-                    .verifyHeading {
-                        color: var(--paper);
-                        font-size: 2.5rem;
-                        font-weight: 600;
-                        font-family: 'Newsreader', Georgia, serif;
-                    }
-
-                    .verifyPara {
-
-                        font-size: 2rem;
-                        color: var(--paper-muted);
-                        margin: 1rem 0rem;
-                        text-align: justify;
-                    }
-
-                    .btnText {
-                        text-decoration: none;
-                        color: var(--marigold);
-                        font-size: 1.8rem;
-                        font-weight: 500;
-                        text-transform: lowercase;
-                        padding: 1rem;
-                    }
-
-                    .btnText::first-letter {
-                        text-transform: uppercase;
-                    }
-
-                }
-
-            }
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;            /* fills the box without stretching the picture */
+            filter: brightness(80%) contrast(105%);
         }
     }
-}
 
-.verifyBottomSection{
-    width: 100%;
-    // border: 2px solid lime;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    background-color: var(--ink-soft);
 
-    .bottomCard{
-        // border: 2px solid red;
+    /* ---------- 2. THE FOUR CARDS ---------- */
+    .ourStoryMiddle {
+        padding: 6rem 4rem;
+        background-color: var(--color-card);
+        
+    }
+
+    .ourStoryGrid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4rem 2rem;
+        max-width: 180rem;
+        margin: 0 auto;
+        
+    }
+
+    /* one card: picture on top, text below */
+    .ourStoryCard {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        min-width: 0;
+    }
+
+    .ourStoryCardPhoto {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    /* number on the left, text on the right */
+    .ourStoryCardBody {
+        display: flex;
+        flex: 1;
+        gap: 1.5rem;
+    }
+
+    .ourStoryStep {
+        flex: none;
+        margin: 0;
+        font-family: 'Newsreader', Georgia, serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        line-height: 1.1;
+        color: var(--color-accent);
+    }
+
+    .ourStoryCardText {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        min-width: 0;
+    }
+
+    .ourStoryCardHeading {
+        margin: 0 0 1rem 0;
+        font-family: 'Newsreader', Georgia, serif;
+        font-size: 2.2rem;
+        font-weight: 600;
+        line-height: 1.25;
+        color: var(--color-text);
+    }
+
+    .ourStoryCardPara {
+        margin: 0 0 1.6rem 0;
+        font-size: 1.6rem;
+        line-height: 1.6;
+        color: var(--color-text-soft);
+    }
+
+    /* the link is pushed to the bottom, so all four links line up */
+    .ourStoryCardLink {
+        margin-top: auto;
+        font-size: 1.7rem;
+        font-weight: 500;
+        color: var(--color-accent);
+        text-decoration: none;
+        text-transform: lowercase;
+
+        /* first letter capital: "Rooted in Kalan" */
+        &::first-letter {
+            text-transform: uppercase;
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--color-text);
+            outline-offset: 4px;
+        }
+    }
+
+
+    /* ---------- 3. NUMBERS AT THE BOTTOM ---------- */
+    .ourStoryNumbers {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        padding: 0 4rem 5rem 4rem;
+        background-color: var(--color-card);
+    }
+
+    .ourStoryNumber {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
         gap: 1rem;
-        border-top: 1px solid var(--paper-muted);
-        margin: 3rem 0rem;
-        padding-top: 2rem;
+        padding-top: 2.4rem;
+        text-align: center;
+        border-top: 1px solid var(--color-text-soft);
+    }
+
+    .ourStoryNumberValue {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        font-family: 'Newsreader', Georgia, serif;
+        font-size: 5rem;
+        line-height: 1;
+        color: var(--color-accent);
+    }
+
+    .ourStoryNumberLabel {
+        margin: 0;
+        font-size: 1.7rem;
+        line-height: 1.5;
+        color: var(--color-text-soft);
+    }
+}
 
 
-        :nth-child(1){
-            font-size: 5rem;
-            color: var(--marigold);
+/* ---------- 4. SMALLER SCREENS ---------- */
+
+/* laptop and tablet: 2 cards in a row */
+@media (max-width: 1200px) {
+    .ourStoryPage {
+        .ourStoryBanner {
+            height: 40rem;
         }
 
-        :nth-child(2){
-            font-size: 2rem;
-            color: var(--paper-muted);
+        .ourStoryGrid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .ourStoryCardHeading {
+            font-size: 2.4rem;
+        }
+
+        .ourStoryCardPara {
+            font-size: 1.7rem;
         }
     }
 }
 
+/* tablet and phone: less spacing, numbers in 2 columns */
+@media (max-width: 900px) {
+    .ourStoryPage {
+        .ourStoryBanner {
+            height: 30rem;
+        }
+
+        .ourStoryMiddle {
+            padding: 4rem 2.4rem;
+        }
+
+        .ourStoryNumbers {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0 2rem;
+            padding: 0 2.4rem 4rem 2.4rem;
+        }
+
+        .ourStoryNumber {
+            margin-bottom: 2.4rem;
+        }
+    }
+}
+
+/* phone: 1 card in a row */
+@media (max-width: 600px) {
+    .ourStoryPage {
+        .ourStoryBanner {
+            height: 22rem;
+        }
+
+        .ourStoryMiddle {
+            padding: 3rem 1.6rem;
+        }
+
+        .ourStoryGrid {
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        .ourStoryCardPhoto {
+            aspect-ratio: 16 / 9;
+        }
+
+        .ourStoryCardHeading {
+            font-size: 2.2rem;
+        }
+
+        .ourStoryCardPara {
+            font-size: 1.6rem;
+        }
+
+        .ourStoryNumbers {
+            gap: 0 1.2rem;
+            padding: 0 1.6rem 3rem 1.6rem;
+        }
+
+        .ourStoryNumberValue {
+            font-size: 3.8rem;
+        }
+
+        .ourStoryNumberLabel {
+            font-size: 1.5rem;
+        }
+    }
 }
