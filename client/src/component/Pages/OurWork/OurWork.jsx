@@ -27,7 +27,7 @@ const WORK = [
         title: "Impact Magazine",
         text: "A monthly record: one Creator of the Month, field notes, and the issues underneath the work.",
         linkText: "Read",
-        to: "/stories",
+        to: "/ourwork/magazine",
     },
     {
         id: "summit",

@@ -18,6 +18,7 @@ import ProtectedRoute from './component/auth/ProtectedRoutes.jsx';
 import HowWeVerify from './component/Pages/MoreAboutUS/How we verify/HowWeVerify.jsx';
 import OurStory from './component/Pages/MoreAboutUS/OurStory/OurStory.jsx';
 import WhoBelongsHere from './component/Pages/MoreAboutUS/WhoBelongsHere/WhoBelongsHere.jsx';
+import ImpactMagazine from './component/Pages/OurWork/ImpactMagazine/ImpactMagazine.jsx';
 function App() {
 
   return (
@@ -38,7 +39,11 @@ function App() {
 
         </Route>
 
-        <Route path="/ourwork" element={<OurWork />} />
+        <Route path="ourwork">
+          <Route index element={<OurWork />}/>
+          <Route path="magazine" element={<ImpactMagazine/>}/>
+
+        </Route>
         <Route path="/impact-tv" element={<ImpactTV />} />
         <Route path="/stories" element={<Story />} />
         <Route path="/nominate" element={<Nominate />} />

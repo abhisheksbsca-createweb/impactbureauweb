@@ -1,13 +1,19 @@
 import { Link } from "react-router-dom";
 import verifyimg from "../../../../assets/village.jpeg"
-import cardimg from "../../../../assets/comingsoon.jpeg"
+// import cardimg from "../../../../assets/comingsoon.jpeg"
+import story1 from "../../../../assets/story1.jpeg"
+import story2 from "../../../../assets/story2.jpeg"
+import story3 from "../../../../assets/story3.jpeg"
+import story4 from "../../../../assets/story4.jpeg"
+
+
 import { FaRegPlayCircle } from "react-icons/fa";
 import "./OurStory.scss";
 
 
 const middleSectionSteps = [
     {
-        image: cardimg,
+        image: story1,
         step: "01",
         heading: "Where it began — Kalan, Sultanpur",
         content:
@@ -17,7 +23,7 @@ const middleSectionSteps = [
 
     },
     {
-        image: cardimg,
+        image: story2,
         step: "02",
         heading: "The foundation — Education",
         content:
@@ -26,7 +32,7 @@ const middleSectionSteps = [
         name: "change starts with opportunity"
     },
     {
-        image: cardimg,
+        image: story3,
         step: "03",
         heading: "The realisation — Change beyond education",
         content:
@@ -35,7 +41,7 @@ const middleSectionSteps = [
         name: "every community has a changeemaker"
     },
     {
-        image: cardimg,
+        image: story4,
         step: "04",
         heading: "The next chapter — Impact Originals",
         content:
